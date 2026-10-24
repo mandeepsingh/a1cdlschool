@@ -1,4 +1,4 @@
-// A1 CDL Training — interactions
+// A1 CDL School — interactions
 (function () {
   document.documentElement.classList.add("js");
 
