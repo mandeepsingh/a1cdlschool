@@ -50,6 +50,12 @@
     revealEls.forEach((el) => el.classList.add("visible"));
   }
 
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Contact form (home page only)
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
   // Program buttons preselect the program in the contact form
   const programSelect = document.getElementById("program");
   document.querySelectorAll("[data-program]").forEach((btn) => {
@@ -57,7 +63,6 @@
   });
 
   // Contact form validation
-  const form = document.getElementById("contact-form");
   const success = form.querySelector(".form-success");
   const rules = {
     name: (v) => v.trim().length >= 2 || "Please enter your name.",
@@ -89,6 +94,4 @@
     success.hidden = false;
     setTimeout(() => { success.hidden = true; }, 8000);
   });
-
-  document.getElementById("year").textContent = new Date().getFullYear();
 })();
