@@ -1361,6 +1361,34 @@ ol {
   margin-top: 30px;
 }
 
+/* Photo variant: truck photo sized to the hero height and pinned right, blending into the dark background */
+.page-hero-photo {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero-photo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* Start left of center so the truck sits beside the text, then run to the screen edge */
+  left: calc(50% - 400px);
+  background:
+    linear-gradient(90deg, var(--ink) 0%, rgba(17, 19, 24, .6) 22%, rgba(17, 19, 24, 0) 45%),
+    linear-gradient(0deg, rgba(17, 19, 24, .35) 0%, rgba(17, 19, 24, 0) 30%),
+    url("../assets/freightliner-sunset-hero.jpg") left center / cover no-repeat;
+}
+
+.page-hero-photo .container {
+  position: relative;
+}
+
+.page-hero-photo p {
+  color: #c9ced8;
+}
+
 .card-price {
   margin-top: 18px;
   color: var(--heading);
@@ -1785,6 +1813,13 @@ ol {
 }
 
 @media (max-width: 1024px) {
+
+  .page-hero-photo::before {
+    left: 0;
+    background:
+      linear-gradient(180deg, rgba(17, 19, 24, .55) 0%, rgba(17, 19, 24, .85) 100%),
+      url("../assets/freightliner-sunset-hero.jpg") 70% center / cover no-repeat;
+  }
   /* vertical Venn: fixed circles, text scales with the diagram's width */
   .venn {
     container-type: inline-size;
