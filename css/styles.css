@@ -1651,6 +1651,28 @@ ol {
     order: -1;
   }
 
+  /* About: heading and text, then the photo, then the button */
+  .about .split {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .about .split-text {
+    display: contents;
+  }
+
+  .about .split-media {
+    order: 1;
+    width: 100%;
+    margin-bottom: 34px;
+  }
+
+  .about .split-text .btn {
+    order: 2;
+  }
+
   .steps {
     grid-template-columns: repeat(2, 1fr);
   }
