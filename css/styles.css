@@ -1504,6 +1504,10 @@ ol {
   margin-top: 48px;
 }
 
+.programs-note + .section-actions {
+  margin-top: 24px;
+}
+
 .steps-5 {
   grid-template-columns: repeat(5, 1fr);
 }
