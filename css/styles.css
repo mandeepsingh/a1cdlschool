@@ -321,14 +321,16 @@ ol {
   height: var(--header-h);
 }
 
-.brand img {
-  height: 72px;
-  width: auto;
-  transition: height .3s var(--ease);
+.brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.site-header.scrolled .brand img {
-  height: 60px;
+.brand img {
+  display: block;
+  height: 72px;
+  width: auto;
 }
 
 .main-nav {
@@ -1235,8 +1237,7 @@ ol {
     --header-h: 76px;
   }
 
-  .brand img,
-  .site-header.scrolled .brand img {
+  .brand img {
     height: 56px;
   }
 
