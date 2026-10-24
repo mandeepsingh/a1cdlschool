@@ -68,8 +68,17 @@
       <nav class="main-nav" id="main-nav" aria-label="Primary">
         <ul>
           <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#training">CDL Training</a></li>
-          <li><a href="#programs">Programs &amp; Pricing</a></li>
+          <li class="has-sub">
+            <a href="#training">CDL Training <svg class="caret" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" />
+              </svg></a>
+            <ul class="sub-nav">
+              <li><a href="company-contract-training.html">Company Contract Training</a></li>
+              <li><a href="cdl-school-training.html">CDL School Training</a></li>
+            </ul>
+          </li>
+          <li><a href="cdl-testing.html">CDL Testing</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -281,8 +290,8 @@
         <div class="section-head reveal">
           <span class="rule" aria-hidden="true"></span>
           <h2>Your Path to a <span class="text-red">CDL</span></h2>
-          <p>A clear, step-by-step program that takes you from day one to test day, with an instructor beside you the
-            whole way.</p>
+          <p>Whether your employer is sponsoring you or you're paying your own way, every program follows the same
+            clear path from day one to test day, with an instructor beside you the whole way.</p>
         </div>
         <ol class="steps">
           <li class="step reveal">
@@ -308,6 +317,16 @@
             <p>Take your skills test with confidence, then get connected with carriers that are hiring new drivers.</p>
           </li>
         </ol>
+        <div class="section-actions reveal">
+          <a href="company-contract-training.html" class="btn btn-dark">Company Contract Training <svg class="chev"
+              viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 6l6 6-6 6" />
+            </svg></a>
+          <a href="cdl-school-training.html" class="btn btn-primary">CDL School Training <svg class="chev"
+              viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 6l6 6-6 6" />
+            </svg></a>
+        </div>
       </div>
     </section>
 
@@ -350,7 +369,7 @@
           </article>
         </div>
 
-        <h3 class="sub-head reveal">Endorsements</h3>
+        <h3 class="sub-head reveal" id="endorsements">Endorsements</h3>
         <div class="cards endorsements">
           <article class="card endorse reveal">
             <span class="endorse-code" aria-hidden="true">P</span>
@@ -499,9 +518,12 @@
       <div>
         <h4>Explore</h4>
         <ul>
-          <li><a href="#training">CDL Training</a></li>
-          <li><a href="#programs">Programs &amp; Pricing</a></li>
-          <li><a href="#about">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="cdl-testing.html">CDL Testing</a></li>
+          <li><a href="cdl-school-training.html">CDL School Training</a></li>
+          <li><a href="company-contract-training.html">Company Contract Training</a></li>
         </ul>
       </div>
       <div>
@@ -509,9 +531,9 @@
         <ul>
           <li><a href="#programs">Class A CDL Training</a></li>
           <li><a href="#programs">Class B CDL Training</a></li>
-          <li><a href="#programs">Passenger Endorsement</a></li>
-          <li><a href="#programs">Tanker Endorsement</a></li>
-          <li><a href="#programs">Hazmat Endorsement</a></li>
+          <li><a href="#endorsements">Passenger Endorsement</a></li>
+          <li><a href="#endorsements">Tanker Endorsement</a></li>
+          <li><a href="#endorsements">Hazmat Endorsement</a></li>
         </ul>
       </div>
       <div>

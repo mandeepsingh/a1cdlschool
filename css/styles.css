@@ -379,6 +379,84 @@ ol {
   font-weight: 600;
 }
 
+/* CDL Training dropdown */
+.has-sub {
+  position: relative;
+}
+
+.main-nav .caret {
+  width: 14px;
+  height: 14px;
+  margin-left: 2px;
+  vertical-align: -1px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform .2s var(--ease);
+}
+
+.has-sub:hover .caret,
+.has-sub:focus-within .caret {
+  transform: rotate(180deg);
+}
+
+.main-nav .sub-nav {
+  position: absolute;
+  top: 100%;
+  left: -16px;
+  z-index: 10;
+  display: grid;
+  gap: 2px;
+  min-width: 260px;
+  margin-top: 14px;
+  padding: 8px;
+  background: var(--ink-2);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity .2s, transform .2s var(--ease), visibility .2s;
+}
+
+/* keeps the menu open while the pointer crosses the gap */
+.main-nav .sub-nav::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -16px;
+  height: 16px;
+}
+
+.has-sub:hover .sub-nav,
+.has-sub:focus-within .sub-nav {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.main-nav .sub-nav a:not(.btn) {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.main-nav .sub-nav a:not(.btn)::after {
+  display: none;
+}
+
+.main-nav .sub-nav a:not(.btn):hover,
+.main-nav .sub-nav a[aria-current="page"] {
+  background: var(--ink-3);
+  color: #fff;
+}
+
 .nav-cta {
   display: none;
 }
@@ -1270,6 +1348,223 @@ ol {
   font-style: normal;
 }
 
+/* ---------- Program pages ---------- */
+.bg-soft {
+  background: var(--bg-soft);
+}
+
+.page-hero p {
+  max-width: 60ch;
+}
+
+.page-hero .btn {
+  margin-top: 30px;
+}
+
+.card-price {
+  margin-top: 18px;
+  color: var(--heading);
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+}
+
+.card-price small {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.card-featured .card-price {
+  color: #fff;
+}
+
+.card-featured .card-price small {
+  color: #aab0bc;
+}
+
+.cost-list {
+  margin: 24px 0 8px;
+}
+
+.cost-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+}
+
+.cost-list dd {
+  margin: 0;
+  color: var(--heading);
+  font-weight: 700;
+}
+
+.cost-list .cost-total {
+  border-bottom: 0;
+  color: var(--heading);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.cost-list .cost-total dd {
+  color: var(--red);
+  font-weight: 900;
+}
+
+.section-intro .section-head {
+  margin-bottom: 0;
+}
+
+.card .cost-list {
+  margin: 0 0 30px;
+}
+
+.card-featured .cost-list div {
+  border-color: var(--line-dark);
+  color: #c5c9d2;
+}
+
+.card-featured .cost-list dd {
+  color: #fff;
+}
+
+.policy-list dd {
+  text-align: right;
+}
+
+.card .text-link {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.table-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.price-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.price-table th,
+.price-table td {
+  padding: 18px 24px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+.price-table thead th {
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.price-table tbody th {
+  color: var(--heading);
+  font-weight: 800;
+}
+
+.price-table td:nth-child(n+3) {
+  color: var(--heading);
+  font-weight: 700;
+}
+
+.price-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.programs-note a:not(.btn) {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.steps-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.faq {
+  max-width: 820px;
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0;
+  color: var(--heading);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--red);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1;
+  transition: transform .2s var(--ease);
+}
+
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq summary:hover {
+  color: var(--red);
+}
+
+.faq details p {
+  padding: 0 52px 22px 0;
+  font-size: 16px;
+}
+
 .contact-map iframe {
   display: block;
   width: 100%;
@@ -1434,16 +1729,23 @@ ol {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1180px) {
+  .header-inner {
+    gap: 20px;
+  }
+
   .main-nav ul {
-    gap: 22px;
+    gap: 18px;
   }
 
   .main-nav a:not(.btn) {
     font-size: 15px;
+    white-space: nowrap;
   }
 
   .header-cta {
     margin-left: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
@@ -1607,6 +1909,45 @@ ol {
     bottom: 10px;
     right: auto;
     width: 28px;
+  }
+
+  .main-nav .caret {
+    display: none;
+  }
+
+  .main-nav .sub-nav {
+    position: static;
+    min-width: 0;
+    margin: -6px 0 10px;
+    padding: 0 0 0 16px;
+    background: none;
+    border: 0;
+    border-left: 2px solid var(--line-dark);
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .main-nav .sub-nav::before {
+    display: none;
+  }
+
+  .main-nav .sub-nav li {
+    border-bottom: 0;
+  }
+
+  .main-nav .sub-nav a:not(.btn) {
+    padding: 9px 0;
+    font-size: 16px;
+    color: #aab0bc;
+  }
+
+  .main-nav .sub-nav a:not(.btn):hover,
+  .main-nav .sub-nav a[aria-current="page"] {
+    background: none;
+    color: #fff;
   }
 
   .nav-cta {
