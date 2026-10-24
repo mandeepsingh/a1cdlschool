@@ -1270,6 +1270,13 @@ ol {
   font-style: normal;
 }
 
+.contact-map iframe {
+  display: block;
+  width: 100%;
+  height: clamp(320px, 40vw, 460px);
+  border: 0;
+}
+
 /* ---------- Reveal on scroll ---------- */
 .js .reveal {
   opacity: 0;

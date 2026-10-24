@@ -25,10 +25,11 @@
 
   // Highlight the nav link for the section in view
   const sections = [...document.querySelectorAll("main section[id]")];
+  const spyLinks = [...navLinks].filter((a) => a.getAttribute("href").startsWith("#"));
   const spy = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      navLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + entry.target.id));
+      spyLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + entry.target.id));
     });
   }, { rootMargin: "-45% 0px -50% 0px" });
   sections.forEach((s) => spy.observe(s));
