@@ -1363,8 +1363,33 @@ ol {
 
 /* Photo variant: truck photo sized to the hero height and pinned right, blending into the dark background */
 .page-hero-photo {
+  --hero-photo: url("../assets/pricing-hero.jpg");
   position: relative;
   overflow: hidden;
+  /* Same height on every page (with or without a button) so the photo fits consistently */
+  display: flex;
+  align-items: center;
+  min-height: clamp(340px, 30vw, 420px);
+}
+
+.page-hero-photo.hero-company {
+  --hero-photo: url("../assets/company-contract-hero.jpg");
+}
+
+.page-hero-photo.hero-contact {
+  --hero-photo: url("../assets/contact-hero.jpg");
+}
+
+.page-hero-photo.hero-about {
+  --hero-photo: url("../assets/about-hero.jpg");
+}
+
+.page-hero-photo.hero-testing {
+  --hero-photo: url("../assets/cdl-testing-hero.jpg");
+}
+
+.page-hero-photo.hero-training {
+  --hero-photo: url("../assets/cdl-training-hero.jpg");
 }
 
 .page-hero-photo::before {
@@ -1378,7 +1403,7 @@ ol {
   background:
     linear-gradient(90deg, var(--ink) 0%, rgba(17, 19, 24, .6) 22%, rgba(17, 19, 24, 0) 45%),
     linear-gradient(0deg, rgba(17, 19, 24, .35) 0%, rgba(17, 19, 24, 0) 30%),
-    url("../assets/freightliner-sunset-hero.jpg") left center / cover no-repeat;
+    var(--hero-photo) left center / cover no-repeat;
 }
 
 .page-hero-photo .container {
@@ -1818,7 +1843,7 @@ ol {
     left: 0;
     background:
       linear-gradient(180deg, rgba(17, 19, 24, .55) 0%, rgba(17, 19, 24, .85) 100%),
-      url("../assets/freightliner-sunset-hero.jpg") 70% center / cover no-repeat;
+      var(--hero-photo) 70% center / cover no-repeat;
   }
   /* vertical Venn: fixed circles, text scales with the diagram's width */
   .venn {
