@@ -1,0 +1,430 @@
+<?php
+/**
+ * Template for the A1 CDL School | CDL Training in Dayton, Ohio page (generated from index.html).
+ *
+ * @package A1CDLSchool
+ */
+
+get_header();
+?>
+
+  <main id="main">
+    <!-- ============ Hero ============ -->
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">Your road to a new career starts here</p>
+        <h1>Get Your CDL.<br /><span class="text-red">Drive Your Future.</span></h1>
+        <p class="hero-sub">Hands-on training. Experienced instructors. Real-world skills.</p>
+        <div class="hero-actions">
+          <a href="#programs" class="btn btn-primary btn-lg">Explore CDL Programs <svg class="chev" viewBox="0 0 24 24"
+              aria-hidden="true">
+              <path d="M9 6l6 6-6 6" />
+            </svg></a>
+          <a href="#contact" class="btn btn-outline btn-lg">Talk to an Instructor</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Feature strip ============ -->
+    <section class="features" aria-label="Why train with us">
+      <div class="container features-grid">
+        <div class="feature">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="19" />
+            <circle cx="24" cy="24" r="5" />
+            <path d="M5.5 21.5c6-3 12-4 18.5-4s12.5 1 18.5 4M20 28l-8 13M28 28l8 13" />
+          </svg>
+          <span>Hands-On Training</span>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M15 15c0-5 4-9 9-9s9 4 9 9" />
+            <path d="M12 15h24" />
+            <circle cx="24" cy="20" r="6" />
+            <path d="M8 43v-5c0-6 5-10 11-10h10c6 0 11 4 11 10v5" />
+            <rect x="27" y="32" width="12" height="9" rx="1.5" />
+            <path d="M31 32v-2h4v2" />
+          </svg>
+          <span>Experienced Instructors</span>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="6" y="9" width="36" height="33" rx="3" />
+            <path d="M6 18h36M15 5v8M33 5v8" />
+            <path d="M13 25h4M22 25h4M31 25h4M13 32h4M22 32h4M31 32h4" />
+          </svg>
+          <span>Flexible Scheduling</span>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M3 21l8-8 7 3 6-3 6 3 7-3 8 8" />
+            <path d="M11 13l-5 14M37 13l5 14" />
+            <path
+              d="M18 16l-5 6c-1 1.5 0 3.5 2 3.5 1 0 2-.5 3-1.5l4-4 10 9c1 1 1 2.5 0 3.5s-2.5 1-3.5 0M27.5 33.5c1 1 1 2.5 0 3.5s-2.5 1-3.5 0l-2-2M23 37c1 1 1 2.5 0 3.5s-2.5 1-3.5 0L12 33" />
+          </svg>
+          <span>Career-Focused Support</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section class="section about" id="about">
+      <div class="container split">
+        <div class="split-text reveal">
+          <span class="rule" aria-hidden="true"></span>
+          <h2>Built for the <span class="text-red">Road Ahead</span></h2>
+          <p class="lead">At A1 CDL School, we provide practical, hands-on CDL training to help you build real skills
+            and gain the confidence you need to succeed. Our experienced instructors are committed to your success,
+            offering the guidance and support you need every step of the way.</p>
+          <a href="#training" class="btn btn-dark">How Training Works <svg class="chev" viewBox="0 0 24 24"
+              aria-hidden="true">
+              <path d="M9 6l6 6-6 6" />
+            </svg></a>
+        </div>
+        <div class="split-media reveal">
+          <img src="<?php echo esc_url( a1cdl_asset( 'truck-inspection.jpg' ) ); ?>"
+            alt="CDL student performing a pre-trip tire inspection with a clipboard" width="1000" height="545"
+            loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Compare ============ -->
+    <section class="section compare" id="compare">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="rule" aria-hidden="true"></span>
+          <h2>Company Contract vs. <span class="text-red">CDL School</span></h2>
+          <p>Whether your employer is paying or you're investing in yourself, you get the same instructors and the
+            same hands-on training.</p>
+        </div>
+
+        <div class="venn reveal">
+          <svg class="venn-shapes" viewBox="0 0 1000 600" aria-hidden="true">
+            <defs>
+              <linearGradient id="venn-dark" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2a2f38" />
+                <stop offset="1" stop-color="#111318" />
+              </linearGradient>
+              <linearGradient id="venn-red" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#e31b23" />
+                <stop offset="1" stop-color="#a50f16" />
+              </linearGradient>
+              <path id="venn-arc-left" d="M125 157 A250 250 0 0 1 416 65" />
+              <path id="venn-arc-right" d="M584 65 A250 250 0 0 1 875 157" />
+            </defs>
+            <circle cx="330" cy="300" r="290" fill="url(#venn-dark)" />
+            <circle cx="670" cy="300" r="290" fill="url(#venn-dark)" />
+            <path d="M500 65 A290 290 0 0 1 500 535 A290 290 0 0 1 500 65z" fill="url(#venn-red)" />
+            <text class="venn-arc-text">
+              <textPath href="#venn-arc-left" startOffset="50%" text-anchor="middle">Company Contract</textPath>
+            </text>
+            <text class="venn-arc-text">
+              <textPath href="#venn-arc-right" startOffset="50%" text-anchor="middle">CDL School</textPath>
+            </text>
+          </svg>
+          <svg class="venn-shapes-v" viewBox="0 0 600 960" aria-hidden="true">
+            <defs>
+              <linearGradient id="venn-dark-v" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2a2f38" />
+                <stop offset="1" stop-color="#111318" />
+              </linearGradient>
+              <linearGradient id="venn-red-v" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#a50f16" />
+                <stop offset=".5" stop-color="#e31b23" />
+                <stop offset="1" stop-color="#a50f16" />
+              </linearGradient>
+              <path id="venn-arc-top" d="M95 157 A250 250 0 0 1 505 157" />
+              <path id="venn-arc-bottom" d="M85 830 A262 262 0 0 0 515 830" />
+            </defs>
+            <circle cx="300" cy="300" r="290" fill="url(#venn-dark-v)" />
+            <circle cx="300" cy="680" r="290" fill="url(#venn-dark-v)" />
+            <path d="M81 490 A290 290 0 0 0 519 490 A290 290 0 0 0 81 490z" fill="url(#venn-red-v)" />
+            <text class="venn-arc-text">
+              <textPath href="#venn-arc-top" startOffset="50%" text-anchor="middle">Company Contract</textPath>
+            </text>
+            <text class="venn-arc-text">
+              <textPath href="#venn-arc-bottom" startOffset="50%" text-anchor="middle">CDL School</textPath>
+            </text>
+          </svg>
+
+          <div class="venn-part venn-left">
+            <h3>Company Contract</h3>
+            <h4>Who is it for?</h4>
+            <p>Drivers whose employer or future employer is paying for their training.</p>
+            <p class="venn-note">*Tuition must be paid by the company</p>
+            <h4>What do you get?</h4>
+            <ul>
+              <li>Class A CDL training</li>
+              <li>ELDT classroom theory</li>
+              <li>Behind-the-wheel training</li>
+              <li>Use of our equipment</li>
+              <li>CDL skills test</li>
+            </ul>
+          </div>
+
+          <div class="venn-part venn-center">
+            <h3>What does everyone get?</h3>
+            <ul>
+              <li>Hands-on training</li>
+              <li>Experienced instructors</li>
+              <li>Flexible scheduling</li>
+              <li>Real equipment</li>
+              <li>Career-focused support</li>
+            </ul>
+          </div>
+
+          <div class="venn-part venn-right">
+            <h3>CDL School</h3>
+            <h4>Who is it for?</h4>
+            <p>Individuals paying for their own training.</p>
+            <h4>What do you get?</h4>
+            <ul>
+              <li>Class A or Class B CDL training</li>
+              <li>ELDT classroom theory</li>
+              <li>Permit test prep</li>
+              <li>Behind-the-wheel training</li>
+              <li>Use of our equipment</li>
+              <li>CDL skills test</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Training steps ============ -->
+    <section class="section training" id="training">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="rule" aria-hidden="true"></span>
+          <h2>Your Path to a <span class="text-red">CDL</span></h2>
+          <p>Whether your employer is sponsoring you or you're paying your own way, every program follows the same
+            clear path from day one to test day, with an instructor beside you the whole way.</p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num">01</span>
+            <h3>Enroll &amp; Get Your Permit</h3>
+            <p>We help you get your DOT medical card and prepare for the written knowledge tests for your Commercial
+              Learner's Permit.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">02</span>
+            <h3>Classroom Theory</h3>
+            <p>Complete ELDT theory covering safe operations, hours of service, vehicle systems and trip planning.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">03</span>
+            <h3>Range &amp; Road Training</h3>
+            <p>Master pre-trip inspection, straight-line and offset backing, parallel parking and real-world road
+              driving.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">04</span>
+            <h3>Test Day &amp; Career</h3>
+            <p>Take your skills test with confidence, then get connected with carriers that are hiring new drivers.</p>
+          </li>
+        </ol>
+        <div class="section-actions reveal">
+          <a href="<?php echo esc_url( a1cdl_link( 'company-contract-training' ) ); ?>" class="btn btn-dark">Company Contract Training <svg class="chev"
+              viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 6l6 6-6 6" />
+            </svg></a>
+          <a href="<?php echo esc_url( a1cdl_link( 'cdl-school-training' ) ); ?>" class="btn btn-primary">CDL School Training <svg class="chev"
+              viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 6l6 6-6 6" />
+            </svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Programs ============ -->
+    <section class="section programs" id="programs">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="rule" aria-hidden="true"></span>
+          <h2>Programs &amp; <span class="text-red">Pricing</span></h2>
+          <p>Get your Class A or Class B CDL, then add the endorsements that open up more jobs. Every program includes
+            hands-on time on real equipment.</p>
+        </div>
+        <div class="cards cards-2">
+          <article class="card card-featured reveal">
+            <div class="card-tag">Most career options</div>
+            <h3>Class A CDL Training</h3>
+            <p class="card-desc">Drive tractor-trailers and combination vehicles for over-the-road, regional and local
+              jobs.</p>
+            <ul class="checklist small">
+              <li>ELDT theory &amp; range training</li>
+              <li>Behind-the-wheel road training</li>
+              <li>Pre-trip inspection mastery</li>
+              <li>Skills test preparation</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary" data-program="Class A CDL Training">Request Pricing</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-tag">Local &amp; vocational</div>
+            <h3>Class B CDL Training</h3>
+            <p class="card-desc">Operate straight trucks, box trucks, dump trucks and buses. Great for home-every-night
+              jobs.</p>
+            <ul class="checklist small">
+              <li>ELDT theory &amp; range training</li>
+              <li>Behind-the-wheel road training</li>
+              <li>Pre-trip inspection mastery</li>
+              <li>Skills test preparation</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-dark" data-program="Class B CDL Training">Request Pricing</a>
+          </article>
+        </div>
+
+        <h3 class="sub-head reveal" id="endorsements">Endorsements</h3>
+        <div class="cards endorsements">
+          <article class="card endorse reveal">
+            <span class="endorse-code" aria-hidden="true">P</span>
+            <h4>Passenger Endorsement</h4>
+            <p>Drive buses and other vehicles designed to carry 16 or more people, including the driver.</p>
+            <a href="#contact" class="text-link" data-program="Passenger Endorsement">Request info <svg class="chev"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" />
+              </svg></a>
+          </article>
+          <article class="card endorse reveal">
+            <span class="endorse-code" aria-hidden="true">N</span>
+            <h4>Tanker Endorsement</h4>
+            <p>Haul liquids and gases in bulk tanks, and learn to handle liquid surge safely.</p>
+            <a href="#contact" class="text-link" data-program="Tanker Endorsement">Request info <svg class="chev"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" />
+              </svg></a>
+          </article>
+          <article class="card endorse reveal">
+            <span class="endorse-code" aria-hidden="true">H</span>
+            <h4>Hazmat Endorsement</h4>
+            <p>Transport placarded hazardous materials, one of the best-paying specialties in trucking.</p>
+            <a href="#contact" class="text-link" data-program="Hazmat Endorsement">Request info <svg class="chev"
+                viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" />
+              </svg></a>
+          </article>
+        </div>
+        <p class="programs-note reveal">See our full pricing for training, endorsements and CDL testing, or contact us
+          for upcoming class dates.</p>
+        <div class="section-actions reveal">
+          <a href="<?php echo esc_url( a1cdl_link( 'pricing' ) ); ?>" class="btn btn-primary">View Full Pricing <svg class="chev" viewBox="0 0 24 24"
+              aria-hidden="true">
+              <path d="M9 6l6 6-6 6" />
+            </svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA band ============ -->
+    <section class="cta-band">
+      <div class="cta-bg" aria-hidden="true"></div>
+      <div class="container cta-inner reveal">
+        <div>
+          <h2>Ready to Hit the Road?</h2>
+          <p>Classes fill up fast. Reserve your spot and start your new career in weeks, not years.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#contact" class="btn btn-primary btn-lg">Enroll Today <svg class="chev" viewBox="0 0 24 24"
+              aria-hidden="true">
+              <path d="M9 6l6 6-6 6" />
+            </svg></a>
+          <a href="tel:+19376185304" class="btn btn-outline btn-lg">Call (937) 618-5304</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <span class="rule" aria-hidden="true"></span>
+          <h2>Start Your <span class="text-red">CDL Journey</span></h2>
+          <p>Tell us a little about yourself and an instructor will reach out to answer your questions and help you
+            choose the right program.</p>
+          <ul class="contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2" />
+              </svg>
+              <div><small>Call us</small><a href="tel:+19376185304">(937) 618-5304</a></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="M3 7l9 6 9-6" />
+              </svg>
+              <div><small>Email</small><a href="mailto:admin@a1cdlschool.com">admin@a1cdlschool.com</a></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 21s-7-6.2-7-11.5A7 7 0 0112 2.5a7 7 0 017 7C19 14.8 12 21 12 21z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg>
+              <div><small>Training yard</small><a
+                  href="https://www.google.com/maps/dir/?api=1&amp;destination=2700+W+National+Rd,+Dayton,+OH+45414"
+                  target="_blank" rel="noopener">2700 W National Rd, Dayton, OH 45414</a></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+              <div><small>Office hours</small><span>Mon–Fri 9am–6pm · Sat 1pm–6pm</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form reveal" id="contact-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" novalidate>
+          <?php a1cdl_contact_form_fields(); ?>
+          <h3>Request Information</h3>
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+              <span class="error" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+              <span class="error" aria-live="polite"></span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+            <span class="error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="program">Program of interest</label>
+            <select id="program" name="program">
+              <option>Class A CDL Training</option>
+              <option>Class B CDL Training</option>
+              <option>Passenger Endorsement</option>
+              <option>Tanker Endorsement</option>
+              <option>Hazmat Endorsement</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message <span class="optional">(optional)</span></label>
+            <textarea id="message" name="message" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Send Request <svg class="chev"
+              viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 6l6 6-6 6" />
+            </svg></button>
+          <?php a1cdl_contact_form_error(); ?>
+          <p class="form-success" role="status"<?php a1cdl_contact_form_success_attr(); ?>>Thanks! Your request was received. An instructor will contact you
+            shortly.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+<?php
+get_footer();

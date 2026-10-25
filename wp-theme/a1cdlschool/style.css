@@ -1,0 +1,24 @@
+/*
+Theme Name: A1 CDL School
+Theme URI: https://a1cdlschool.com/
+Author: A1 CDL School
+Description: Custom theme for A1 CDL School in Dayton, Ohio. Generated from the static site by tools/build_wp_theme.py.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+License: All rights reserved
+Text Domain: a1cdlschool
+*/
+
+/* Main styles live in css/styles.css. Additions for WordPress only go below. */
+
+.form-error {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #fdecec;
+  color: #a50f16;
+  border: 1px solid #f5c2c4;
+  font-weight: 600;
+  font-size: 15px;
+}
