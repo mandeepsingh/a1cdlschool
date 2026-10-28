@@ -9,15 +9,15 @@ get_header();
 ?>
 
   <main id="main">
-    <!-- PLACEHOLDER CONTENT: test prices, practice rates, the cancellation policy and third-party testing status
-         are sample details. Confirm A1 CDL School is an approved Ohio third-party CDL testing site and replace
-         these with real details before launch. -->
+    <!-- Test prices and practice rates come from the client's pricing update; the $165 full test price is pending
+         client confirmation. PLACEHOLDER CONTENT: the cancellation policy and third-party testing status are sample
+         details. Confirm A1 CDL School is an approved Ohio third-party CDL testing site before launch. -->
 
     <section class="page-hero page-hero-photo hero-testing">
       <div class="container">
         <span class="rule"></span>
         <h1>CDL Testing</h1>
-        <p>Ready to take your CDL test? Schedule your Class A or Class B skills test in our trucks or your own.</p>
+        <p>Ready to take your CDL test? Schedule your Class A or Class B skills test in our equipment.</p>
         <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-primary btn-lg">Schedule Your Test <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M9 6l6 6-6 6" />
               </svg></a>
@@ -29,7 +29,7 @@ get_header();
         <div class="section-head reveal">
           <span class="rule" aria-hidden="true"></span>
           <h2>Test with <span class="text-red">Confidence</span></h2>
-          <p>A1 CDL School is a third-party CDL testing site offering Class A and Class B skills tests at our Dayton training yard. Test in our equipment or bring your own, whether you trained with us or somewhere else.</p>
+          <p>A1 CDL School is a third-party CDL testing site offering Class A and Class B skills tests at our Dayton training yard. Test in our equipment, whether you trained with us or somewhere else.</p>
         </div>
       </div>
     </section>
@@ -39,69 +39,42 @@ get_header();
         <div class="section-head reveal">
           <span class="rule" aria-hidden="true"></span>
           <h2>Testing Options &amp; <span class="text-red">Pricing</span></h2>
-          <p>Choose the test you need for a Class A or Class B CDL. Prices depend on whether you use your own equipment or ours.</p>
+          <p>Choose the test you need for a Class A or Class B CDL. All tests are taken in A1 Truck Rental equipment.</p>
         </div>
         <div class="cards">
           <article class="card card-featured reveal">
             <div class="card-tag">Most popular</div>
             <h3>Full Test</h3>
+            <p class="card-price">$165</p>
             <p class="card-desc">The complete CDL skills test for Class A or Class B.</p>
             <ul class="checklist small">
               <li>Pre-trip inspection</li>
               <li>Basic vehicle control (maneuvers)</li>
               <li>On-road driving test</li>
             </ul>
-            <dl class="cost-list">
-              <div>
-                <dt>Your equipment</dt>
-                <dd>$375</dd>
-              </div>
-              <div>
-                <dt>Our equipment</dt>
-                <dd>$450</dd>
-              </div>
-            </dl>
             <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-primary">Schedule Test</a>
           </article>
 
           <article class="card reveal">
             <div class="card-tag">Already passed pre-trip</div>
             <h3>Partial Test</h3>
+            <p class="card-price">$135</p>
             <p class="card-desc">For drivers who only need to complete maneuvers and the road test.</p>
             <ul class="checklist small">
               <li>Basic vehicle control (maneuvers)</li>
               <li>On-road driving test</li>
             </ul>
-            <dl class="cost-list">
-              <div>
-                <dt>Your equipment</dt>
-                <dd>$250</dd>
-              </div>
-              <div>
-                <dt>Our equipment</dt>
-                <dd>$300</dd>
-              </div>
-            </dl>
             <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-outline-dark">Schedule Test</a>
           </article>
 
           <article class="card reveal">
             <div class="card-tag">Road test only</div>
             <h3>Driving Only</h3>
+            <p class="card-price">$85</p>
             <p class="card-desc">For drivers who only need to complete the on-road driving test.</p>
             <ul class="checklist small">
               <li>On-road driving test</li>
             </ul>
-            <dl class="cost-list">
-              <div>
-                <dt>Your equipment</dt>
-                <dd>$125</dd>
-              </div>
-              <div>
-                <dt>Our equipment</dt>
-                <dd>$150</dd>
-              </div>
-            </dl>
             <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-outline-dark">Schedule Test</a>
           </article>
         </div>
@@ -119,16 +92,16 @@ get_header();
           <article class="card reveal">
             <div class="card-tag">Optional</div>
             <h3>Practice Sessions</h3>
-            <p class="card-desc">Practice in our equipment with an instructor before your test. Practice time is not
+            <p class="card-desc">Additional preparation and practice in our equipment are available, but not
               required to test with us.</p>
             <dl class="cost-list">
               <div>
-                <dt>2 hours of practice</dt>
-                <dd>$300</dd>
+                <dt>1 hour of road and range practice</dt>
+                <dd>$500</dd>
               </div>
               <div>
-                <dt>4 hours of practice</dt>
-                <dd>$600</dd>
+                <dt>3 hours (1 hour road, 2 hours range)</dt>
+                <dd>$1,200</dd>
               </div>
             </dl>
             <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-outline-dark">Book Practice Time</a>
@@ -178,7 +151,7 @@ get_header();
           <li class="step reveal">
             <span class="step-num">03</span>
             <h3>Add Practice Time</h3>
-            <p>Optional: book 2 or 4 hours of practice in our equipment before your test.</p>
+            <p>Optional: book 1 or 3 hours of road and range practice before your test.</p>
           </li>
           <li class="step reveal">
             <span class="step-num">04</span>
@@ -199,7 +172,7 @@ get_header();
         <div class="cards">
           <article class="card reveal">
             <h3>CDL School Training</h3>
-            <p class="card-desc">A complete Class A program for individuals, from permit prep to test day.</p>
+            <p class="card-desc">Complete Class A and Class B programs for individuals, from theory to test day.</p>
             <a href="<?php echo esc_url( a1cdl_link( 'cdl-school-training' ) ); ?>" class="text-link">View program <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M9 6l6 6-6 6" />
               </svg></a>

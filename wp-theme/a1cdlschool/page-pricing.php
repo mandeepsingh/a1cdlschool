@@ -9,8 +9,8 @@ get_header();
 ?>
 
   <main id="main">
-    <!-- PLACEHOLDER CONTENT: all prices on this page are sample figures. Replace them with A1 CDL School's
-         real pricing before launch, and keep them in sync with the program and testing pages. -->
+    <!-- Prices come from the client's pricing update. The $165 full test price is pending client confirmation.
+         Keep these in sync with the program and testing pages. -->
 
     <section class="page-hero page-hero-photo">
       <div class="container">
@@ -30,30 +30,62 @@ get_header();
           <h2>CDL Training <span class="text-red">Programs</span></h2>
           <p>Whether you are paying for yourself or your company is sponsoring you, there is a program that fits.</p>
         </div>
-        <div class="cards">
+        <h3 class="sub-head reveal">CDL School <span class="text-red">(Individuals)</span></h3>
+        <div class="cards cards-2">
           <article class="card card-featured reveal">
             <div class="card-tag">For individuals</div>
             <h3>Class A CDL Program</h3>
-            <p class="card-price"><small>Total, including fees</small>$5,582</p>
-            <p class="card-desc">Our complete CDL school program, from permit prep to test day.</p>
+            <p class="card-price"><small>Total tuition, no extra fees</small>$5,800</p>
+            <p class="card-desc">Our complete Class A CDL school program, from theory to test day.</p>
             <ul class="checklist small">
-              <li>92 course hours</li>
               <li>44 hours behind-the-wheel</li>
-              <li>Permit prep, books and fees included</li>
+              <li>40 hours theory, online or in class</li>
+              <li>Manual or automatic equipment</li>
               <li>CDL skills test included</li>
             </ul>
             <a href="<?php echo esc_url( a1cdl_link( 'cdl-school-training' ) ); ?>" class="btn btn-primary">View Program</a>
           </article>
 
           <article class="card reveal">
+            <div class="card-tag">For individuals</div>
+            <h3>Class B CDL Program</h3>
+            <p class="card-price"><small>Total tuition, no extra fees</small>$4,500</p>
+            <p class="card-desc">Our complete Class B CDL school program, from theory to test day.</p>
+            <ul class="checklist small">
+              <li>28 hours behind-the-wheel</li>
+              <li>40 hours theory, online or in class</li>
+              <li>Includes our equipment</li>
+              <li>CDL skills test included</li>
+            </ul>
+            <a href="<?php echo esc_url( a1cdl_link( 'cdl-school-training' ) ); ?>" class="btn btn-outline-dark">View Program</a>
+          </article>
+        </div>
+
+        <h3 class="sub-head reveal">Company Contract <span class="text-red">Training</span></h3>
+        <div class="cards">
+          <article class="card reveal">
             <div class="card-tag">For companies</div>
             <h3>Company Class A CDL</h3>
-            <p class="card-price"><small>Starting at</small>$4,650</p>
+            <p class="card-price"><small>Starting at</small>$4,200</p>
             <p class="card-desc">Flexible Class A training for companies and owner-operators.</p>
             <ul class="checklist small">
               <li>25 hours behind-the-wheel</li>
-              <li>40 hours online theory</li>
-              <li>Manual or automatic equipment</li>
+              <li>Online theory training</li>
+              <li>Includes our equipment</li>
+              <li>CDL skills test included</li>
+            </ul>
+            <a href="<?php echo esc_url( a1cdl_link( 'company-contract-training' ) ); ?>" class="btn btn-outline-dark">View Program</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-tag">For companies</div>
+            <h3>Company Class B CDL</h3>
+            <p class="card-price"><small>Starting at</small>$3,000</p>
+            <p class="card-desc">Flexible Class B training for companies and owner-operators.</p>
+            <ul class="checklist small">
+              <li>20 hours behind-the-wheel</li>
+              <li>Online theory training</li>
+              <li>Includes our equipment</li>
               <li>CDL skills test included</li>
             </ul>
             <a href="<?php echo esc_url( a1cdl_link( 'company-contract-training' ) ); ?>" class="btn btn-outline-dark">View Program</a>
@@ -62,12 +94,12 @@ get_header();
           <article class="card reveal">
             <div class="card-tag">Have a Class B?</div>
             <h3>Class B to Class A Upgrade</h3>
-            <p class="card-price"><small>Starting at</small>$3,960</p>
+            <p class="card-price"><small>Starting at</small>$3,500</p>
             <p class="card-desc">For current Class B CDL holders moving up to a Class A license.</p>
             <ul class="checklist small">
               <li>20 hours behind-the-wheel</li>
-              <li>40 hours online theory</li>
-              <li>4 individual sessions</li>
+              <li>Online theory training</li>
+              <li>Includes our equipment</li>
               <li>CDL skills test included</li>
             </ul>
             <a href="<?php echo esc_url( a1cdl_link( 'company-contract-training' ) ); ?>" class="btn btn-outline-dark">View Program</a>
@@ -104,8 +136,8 @@ get_header();
               </svg></a>
           </article>
         </div>
-        <p class="programs-note reveal">Contact us for endorsement pricing. Training or testing booked on its own
-          includes an $85 enrollment fee for a drug screen and driving record (MVR) check.</p>
+        <p class="programs-note reveal">Contact us for endorsement pricing. We can customize any training package to
+          your needs and skill level.</p>
       </div>
     </section>
 
@@ -114,7 +146,7 @@ get_header();
         <div class="section-head reveal">
           <span class="rule" aria-hidden="true"></span>
           <h2>CDL Testing <span class="text-red">Prices</span></h2>
-          <p>Class A or Class B skills testing, in your equipment or ours.</p>
+          <p>Class A or Class B skills testing in A1 Truck Rental equipment.</p>
         </div>
         <div class="table-wrap reveal">
           <table class="price-table">
@@ -122,33 +154,34 @@ get_header();
               <tr>
                 <th scope="col">Test</th>
                 <th scope="col">Includes</th>
-                <th scope="col">Your equipment</th>
-                <th scope="col">Our equipment</th>
+                <th scope="col">Price</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">Full Test</th>
                 <td>Pre-trip inspection, maneuvers, road test</td>
-                <td>$375</td>
-                <td>$450</td>
+                <td>$165</td>
               </tr>
               <tr>
                 <th scope="row">Partial Test</th>
                 <td>Maneuvers, road test</td>
-                <td>$250</td>
-                <td>$300</td>
+                <td>$135</td>
               </tr>
               <tr>
                 <th scope="row">Driving Only</th>
                 <td>Road test</td>
-                <td>$125</td>
-                <td>$150</td>
+                <td>$85</td>
               </tr>
               <tr>
-                <th scope="row">Practice Session</th>
-                <td>Optional practice in our equipment</td>
-                <td colspan="2">2 hours $300 &middot; 4 hours $600</td>
+                <th scope="row">Practice: 1 Hour</th>
+                <td>Optional road and range practice</td>
+                <td>$500</td>
+              </tr>
+              <tr>
+                <th scope="row">Practice: 3 Hours</th>
+                <td>Optional practice: 1 hour road, 2 hours range</td>
+                <td>$1,200</td>
               </tr>
             </tbody>
           </table>
@@ -221,14 +254,18 @@ get_header();
             <h3>Company Contract</h3>
             <h4>Who is it for?</h4>
             <p>Drivers whose employer or future employer is paying for their training.</p>
-            <p class="venn-note">*Tuition must be paid by the company</p>
             <h4>What do you get?</h4>
+            <h5>Class A CDL</h5>
             <ul>
-              <li>Class A CDL training</li>
-              <li>ELDT classroom theory</li>
-              <li>Behind-the-wheel training</li>
-              <li>Use of our equipment</li>
-              <li>CDL skills test</li>
+              <li>25 hrs behind the wheel</li>
+              <li>Online theory</li>
+              <li>Cost: <strong>$4,200</strong></li>
+            </ul>
+            <h5>Class B CDL</h5>
+            <ul>
+              <li>20 hrs behind the wheel</li>
+              <li>Online theory</li>
+              <li>Cost: <strong>$3,000</strong></li>
             </ul>
           </div>
 
@@ -248,13 +285,17 @@ get_header();
             <h4>Who is it for?</h4>
             <p>Individuals paying for their own training.</p>
             <h4>What do you get?</h4>
+            <h5>Class A CDL</h5>
             <ul>
-              <li>Class A or Class B CDL training</li>
-              <li>ELDT classroom theory</li>
-              <li>Permit test prep</li>
-              <li>Behind-the-wheel training</li>
-              <li>Use of our equipment</li>
-              <li>CDL skills test</li>
+              <li>44 hrs behind the wheel</li>
+              <li>40 hrs online/in-class theory</li>
+              <li>Cost: <strong>$5,800</strong></li>
+            </ul>
+            <h5>Class B CDL</h5>
+            <ul>
+              <li>28 hrs behind the wheel</li>
+              <li>40 hrs online/in-class theory</li>
+              <li>Cost: <strong>$4,500</strong></li>
             </ul>
           </div>
         </div>

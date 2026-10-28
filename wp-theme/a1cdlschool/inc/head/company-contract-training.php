@@ -1,11 +1,11 @@
   <meta name="description"
-    content="Employer-sponsored CDL training in Dayton, Ohio. Flexible Class A and Class B to A upgrade packages for trucking companies and owner-operators." />
+    content="Employer-sponsored CDL training in Dayton, Ohio. Flexible Class A, Class B and Class B to A upgrade packages for trucking companies and owner-operators." />
   <meta name="theme-color" content="#111318" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="A1 CDL School" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="Company Contract CDL Training | A1 CDL School" />
-  <meta property="og:description" content="Employer-sponsored CDL training in Dayton, Ohio. Flexible Class A and Class B to A upgrade packages for trucking companies and owner-operators." />
+  <meta property="og:description" content="Employer-sponsored CDL training in Dayton, Ohio. Flexible Class A, Class B and Class B to A upgrade packages for trucking companies and owner-operators." />
   <meta property="og:url" content="<?php echo esc_url( a1cdl_url( 'company-contract-training' ) ); ?>" />
   <meta property="og:image" content="<?php echo esc_url( a1cdl_asset( 'og-image.jpg' ) ); ?>" />
   <meta property="og:image:width" content="1200" />
@@ -13,7 +13,7 @@
   <meta property="og:image:alt" content="A1 CDL School: Class A and Class B CDL training in Dayton, Ohio" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Company Contract CDL Training | A1 CDL School" />
-  <meta name="twitter:description" content="Employer-sponsored CDL training in Dayton, Ohio. Flexible Class A and Class B to A upgrade packages for trucking companies and owner-operators." />
+  <meta name="twitter:description" content="Employer-sponsored CDL training in Dayton, Ohio. Flexible Class A, Class B and Class B to A upgrade packages for trucking companies and owner-operators." />
   <meta name="twitter:image" content="<?php echo esc_url( a1cdl_asset( 'og-image.jpg' ) ); ?>" />
   <meta name="twitter:image:alt" content="A1 CDL School: Class A and Class B CDL training in Dayton, Ohio" />
   <script type="application/ld+json">
@@ -23,7 +23,7 @@
         {
           "@type": "Course",
           "name": "Company Contract CDL Training",
-          "description": "Employer-sponsored Class A CDL training and Class B to Class A upgrades for companies and owner-operators.",
+          "description": "Employer-sponsored Class A and Class B CDL training and Class B to Class A upgrades for companies and owner-operators.",
           "url": "<?php echo esc_url( a1cdl_url( 'company-contract-training' ) ); ?>",
           "provider": {
             "@type": "Organization",
