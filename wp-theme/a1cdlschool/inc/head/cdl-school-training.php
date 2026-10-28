@@ -1,19 +1,19 @@
   <meta name="description"
-    content="Get your Class A CDL at A1 CDL School in Dayton, Ohio. Permit prep, ELDT theory, behind-the-wheel training and your CDL skills test in one program." />
+    content="Get your Class A or Class B CDL at A1 CDL School in Dayton, Ohio. ELDT theory, behind-the-wheel training and your CDL skills test in one program." />
   <meta name="theme-color" content="#111318" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="A1 CDL School" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:title" content="Class A CDL School in Dayton, Ohio | A1 CDL School" />
-  <meta property="og:description" content="Get your Class A CDL at A1 CDL School in Dayton, Ohio. Permit prep, ELDT theory, behind-the-wheel training and your CDL skills test in one program." />
+  <meta property="og:title" content="Class A &amp; Class B CDL School in Dayton, Ohio | A1 CDL School" />
+  <meta property="og:description" content="Get your Class A or Class B CDL at A1 CDL School in Dayton, Ohio. ELDT theory, behind-the-wheel training and your CDL skills test in one program." />
   <meta property="og:url" content="<?php echo esc_url( a1cdl_url( 'cdl-school-training' ) ); ?>" />
   <meta property="og:image" content="<?php echo esc_url( a1cdl_asset( 'og-image.jpg' ) ); ?>" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="A1 CDL School: Class A and Class B CDL training in Dayton, Ohio" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Class A CDL School in Dayton, Ohio | A1 CDL School" />
-  <meta name="twitter:description" content="Get your Class A CDL at A1 CDL School in Dayton, Ohio. Permit prep, ELDT theory, behind-the-wheel training and your CDL skills test in one program." />
+  <meta name="twitter:title" content="Class A &amp; Class B CDL School in Dayton, Ohio | A1 CDL School" />
+  <meta name="twitter:description" content="Get your Class A or Class B CDL at A1 CDL School in Dayton, Ohio. ELDT theory, behind-the-wheel training and your CDL skills test in one program." />
   <meta name="twitter:image" content="<?php echo esc_url( a1cdl_asset( 'og-image.jpg' ) ); ?>" />
   <meta name="twitter:image:alt" content="A1 CDL School: Class A and Class B CDL training in Dayton, Ohio" />
   <script type="application/ld+json">
@@ -23,7 +23,18 @@
         {
           "@type": "Course",
           "name": "Class A CDL Program",
-          "description": "A complete Class A CDL program with permit prep, ELDT theory, behind-the-wheel training and the CDL skills test.",
+          "description": "A complete Class A CDL program with ELDT theory, behind-the-wheel training and the CDL skills test.",
+          "url": "<?php echo esc_url( a1cdl_url( 'cdl-school-training' ) ); ?>",
+          "provider": {
+            "@type": "Organization",
+            "name": "A1 CDL School",
+            "sameAs": "<?php echo esc_url( a1cdl_url( 'index' ) ); ?>"
+          }
+        },
+        {
+          "@type": "Course",
+          "name": "Class B CDL Program",
+          "description": "A complete Class B CDL program with ELDT theory, behind-the-wheel training and the CDL skills test.",
           "url": "<?php echo esc_url( a1cdl_url( 'cdl-school-training' ) ); ?>",
           "provider": {
             "@type": "Organization",
@@ -87,7 +98,7 @@
               "name": "Do I need a drug test?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. A DOT drug test is required before you start training, and it is separate from your DOT physical. Both are included in your program fees."
+                "text": "Yes. A DOT drug test is required before you start training, and it is separate from your DOT physical. We'll help you schedule both."
               }
             }
           ]

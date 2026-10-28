@@ -1,6 +1,6 @@
 <?php
 /**
- * Template for the Class A CDL School in Dayton, Ohio | A1 CDL School page (generated from cdl-school-training.html).
+ * Template for the Class A &amp; Class B CDL School in Dayton, Ohio | A1 CDL School page (generated from cdl-school-training.html).
  *
  * @package A1CDLSchool
  */
@@ -9,14 +9,14 @@ get_header();
 ?>
 
   <main id="main">
-    <!-- PLACEHOLDER CONTENT: prices, hours, schedules and policies on this page are sample figures.
-         Replace them with A1 CDL School's real program details before launch. -->
+    <!-- Prices and hours come from the client's pricing update. PLACEHOLDER CONTENT: schedules and policies
+         on this page are sample details. Replace them with A1 CDL School's real program details before launch. -->
 
     <section class="page-hero page-hero-photo hero-training">
       <div class="container">
         <span class="rule"></span>
         <h1>CDL School Training</h1>
-        <p>A complete Class A CDL program for individuals, from permit prep to test day.</p>
+        <p>Complete Class A and Class B CDL programs for individuals, from theory to test day.</p>
         <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-primary btn-lg">Enroll Today <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M9 6l6 6-6 6" />
               </svg></a>
@@ -27,8 +27,8 @@ get_header();
       <div class="container">
         <div class="section-head reveal">
           <span class="rule" aria-hidden="true"></span>
-          <h2>Your Path to a <span class="text-red">Class A CDL</span></h2>
-          <p>Our Class A program takes you from your permit to your CDL skills test with experienced instructors and real equipment. Many students finish in about 30 days once they are fully enrolled.</p>
+          <h2>Your Path to a <span class="text-red">CDL</span></h2>
+          <p>Our Class A and Class B programs take you from your permit to your CDL skills test with experienced instructors and real equipment. Many students finish in about 30 days once they are fully enrolled.</p>
         </div>
       </div>
     </section>
@@ -38,17 +38,16 @@ get_header();
         <div class="section-head reveal">
           <span class="rule" aria-hidden="true"></span>
           <h2>Program &amp; <span class="text-red">Pricing</span></h2>
-          <p>One price covers your training, your fees and your CDL skills test.</p>
+          <p>One price covers your training and your CDL skills test, with no application or extra fees.</p>
         </div>
-        <div class="cards cards-2">
+        <div class="cards">
           <article class="card card-featured reveal">
-            <div class="card-tag">92 course hours</div>
+            <div class="card-tag">84 course hours</div>
             <h3>Class A CDL Program</h3>
-            <p class="card-price"><small>Total, including fees</small>$5,582</p>
+            <p class="card-price"><small>Total tuition</small>$5,800</p>
             <p class="card-desc">Drive tractor-trailers and combination vehicles for over-the-road, regional and local
               jobs.</p>
             <ul class="checklist small">
-              <li>8 hours permit test prep</li>
               <li>40 hours theory, online or in person (ELDT)</li>
               <li>44 hours behind-the-wheel training</li>
               <li>Manual or automatic equipment</li>
@@ -58,20 +57,38 @@ get_header();
           </article>
 
           <article class="card reveal">
+            <div class="card-tag">68 course hours</div>
+            <h3>Class B CDL Program</h3>
+            <p class="card-price"><small>Total tuition</small>$4,500</p>
+            <p class="card-desc">Drive straight trucks, dump trucks and other heavy single vehicles for local jobs.</p>
+            <ul class="checklist small">
+              <li>40 hours theory, online or in person (ELDT)</li>
+              <li>28 hours behind-the-wheel training</li>
+              <li>Includes our equipment</li>
+              <li>CDL skills test included</li>
+            </ul>
+            <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-outline-dark">Enroll Today</a>
+          </article>
+
+          <article class="card reveal">
             <div class="card-tag">Cost breakdown</div>
             <h3>What You Pay</h3>
             <dl class="cost-list">
               <div>
-                <dt>Tuition</dt>
-                <dd>$5,250</dd>
+                <dt>Application fee</dt>
+                <dd>$0</dd>
               </div>
               <div>
-                <dt>Books, DOT physical, driving record (MVR) and drug test</dt>
-                <dd>$332</dd>
+                <dt>Other fees</dt>
+                <dd>$0</dd>
               </div>
-              <div class="cost-total">
-                <dt>Total</dt>
-                <dd>$5,582</dd>
+              <div>
+                <dt>Class A tuition</dt>
+                <dd>$5,800</dd>
+              </div>
+              <div>
+                <dt>Class B tuition</dt>
+                <dd>$4,500</dd>
               </div>
             </dl>
             <p class="card-desc">You may qualify for help paying for training, such as WIOA funding through your local
@@ -109,7 +126,7 @@ get_header();
           <li class="step reveal">
             <span class="step-num">04</span>
             <h3>Start Training</h3>
-            <p>Begin with theory and permit prep, then move on to behind-the-wheel training.</p>
+            <p>Begin with theory, then move on to behind-the-wheel training.</p>
           </li>
         </ol>
       </div>
@@ -149,7 +166,7 @@ get_header();
           </details>
           <details>
             <summary>Do I need a drug test?</summary>
-            <p>Yes. A DOT drug test is required before you start training, and it is separate from your DOT physical. Both are included in your program fees.</p>
+            <p>Yes. A DOT drug test is required before you start training, and it is separate from your DOT physical. We'll help you schedule both.</p>
           </details>
         </div>
       </div>

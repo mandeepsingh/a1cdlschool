@@ -9,8 +9,8 @@ get_header();
 ?>
 
   <main id="main">
-    <!-- PLACEHOLDER CONTENT: prices, hours, schedules and policies on this page are sample figures.
-         Replace them with A1 CDL School's real program details before launch. -->
+    <!-- Prices and hours come from the client's pricing update. PLACEHOLDER CONTENT: schedules and policies
+         on this page are sample details. Replace them with A1 CDL School's real program details before launch. -->
 
     <section class="page-hero page-hero-photo hero-company">
       <div class="container">
@@ -20,6 +20,44 @@ get_header();
         <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-primary btn-lg">Register Drivers <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M9 6l6 6-6 6" />
               </svg></a>
+      </div>
+    </section>
+
+    <section class="features" aria-label="Why train with us">
+      <div class="container features-grid">
+        <div class="feature">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M15 15c0-5 4-9 9-9s9 4 9 9" />
+            <path d="M12 15h24" />
+            <circle cx="24" cy="20" r="6" />
+            <path d="M8 43v-5c0-6 5-10 11-10h10c6 0 11 4 11 10v5" />
+            <rect x="27" y="32" width="12" height="9" rx="1.5" />
+            <path d="M31 32v-2h4v2" />
+          </svg>
+          <span>Personalized Training</span>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <rect x="6" y="9" width="36" height="33" rx="3" />
+            <path d="M6 18h36M15 5v8M33 5v8" />
+            <path d="M13 25h4M22 25h4M31 25h4M13 32h4M22 32h4M31 32h4" />
+          </svg>
+          <span>Flexible Scheduling</span>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="19" />
+            <path d="M30 17.5c-1.2-1.8-3.4-2.8-6-2.8-3.4 0-6 1.8-6 4.5 0 6 12 3.2 12 9.3 0 2.8-2.7 4.6-6 4.6-2.8 0-5-1.1-6.2-3M24 11v26" />
+          </svg>
+          <span>Affordable Pricing</span>
+        </div>
+        <div class="feature">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M6 15l18-8 18 8v18l-18 8-18-8z" />
+            <path d="M6 15l18 8 18-8M24 23v18M15 11l18 8v6" />
+          </svg>
+          <span>Customized Pricing Packages</span>
+        </div>
       </div>
     </section>
 
@@ -40,39 +78,51 @@ get_header();
           <h2>Training <span class="text-red">Options</span></h2>
           <p>Train one driver or a whole group, at our training yard or on-site at your location.</p>
         </div>
-        <div class="cards cards-2">
+        <div class="cards">
           <article class="card card-featured reveal">
             <div class="card-tag">Most popular</div>
             <h3>Class A CDL</h3>
-            <p class="card-price"><small>Starting at</small>$4,650</p>
+            <p class="card-price"><small>Starting at</small>$4,200</p>
             <p class="card-desc">The usual choice for companies sending employees to get their Class A CDL.</p>
             <ul class="checklist small">
-              <li>25 hours behind-the-wheel training</li>
-              <li>40 hours online theory (ELDT)</li>
-              <li>Permit test prep</li>
-              <li>Manual or automatic equipment</li>
+              <li>25 hours of 1-on-1 behind-the-wheel training</li>
+              <li>Online theory training (ELDT)</li>
+              <li>Includes our equipment</li>
               <li>CDL skills test included</li>
             </ul>
             <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-primary">Register Drivers</a>
           </article>
 
           <article class="card reveal">
+            <div class="card-tag">Straight trucks</div>
+            <h3>Class B CDL</h3>
+            <p class="card-price"><small>Starting at</small>$3,000</p>
+            <p class="card-desc">For employees who will drive straight trucks, dump trucks and other heavy single vehicles.</p>
+            <ul class="checklist small">
+              <li>20 hours of 1-on-1 behind-the-wheel training</li>
+              <li>Online theory training (ELDT)</li>
+              <li>Includes our equipment</li>
+              <li>CDL skills test included</li>
+            </ul>
+            <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-outline-dark">Register Drivers</a>
+          </article>
+
+          <article class="card reveal">
             <div class="card-tag">Have a Class B?</div>
             <h3>Class B to Class A Upgrade</h3>
-            <p class="card-price"><small>Starting at</small>$3,960</p>
+            <p class="card-price"><small>Starting at</small>$3,500</p>
             <p class="card-desc">For current Class B CDL holders moving up to a Class A license.</p>
             <ul class="checklist small">
-              <li>20 hours behind-the-wheel training</li>
-              <li>40 hours online theory (ELDT)</li>
-              <li>4 individual sessions</li>
-              <li>Automatic equipment</li>
+              <li>20 hours of 1-on-1 behind-the-wheel training</li>
+              <li>Online theory training (ELDT)</li>
+              <li>Includes our equipment</li>
               <li>CDL skills test included</li>
             </ul>
             <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-outline-dark">Register Drivers</a>
           </article>
         </div>
-        <p class="programs-note reveal">The upgrade requires a current Class B CDL. Training or testing booked on its own
-          includes an $85 enrollment fee for a drug screen and driving record (MVR) check. Contact us for a custom
+        <p class="programs-note reveal">The upgrade requires a current Class B CDL. Training is offered in groups or on
+          an individual basis, and we can customize any package to your needs and skill level. Contact us for a custom
           quote.</p>
       </div>
     </section>
@@ -92,8 +142,8 @@ get_header();
           </li>
           <li class="step reveal">
             <span class="step-num">02</span>
-            <h3>Prep for the Permit</h3>
-            <p>Permit prep gets drivers ready for the CDL knowledge tests.</p>
+            <h3>Study for the Permit</h3>
+            <p>Drivers study for the CDL knowledge tests.</p>
           </li>
           <li class="step reveal">
             <span class="step-num">03</span>
@@ -177,14 +227,18 @@ get_header();
             <h3>Company Contract</h3>
             <h4>Who is it for?</h4>
             <p>Drivers whose employer or future employer is paying for their training.</p>
-            <p class="venn-note">*Tuition must be paid by the company</p>
             <h4>What do you get?</h4>
+            <h5>Class A CDL</h5>
             <ul>
-              <li>Class A CDL training</li>
-              <li>ELDT classroom theory</li>
-              <li>Behind-the-wheel training</li>
-              <li>Use of our equipment</li>
-              <li>CDL skills test</li>
+              <li>25 hrs behind the wheel</li>
+              <li>Online theory</li>
+              <li>Cost: <strong>$4,200</strong></li>
+            </ul>
+            <h5>Class B CDL</h5>
+            <ul>
+              <li>20 hrs behind the wheel</li>
+              <li>Online theory</li>
+              <li>Cost: <strong>$3,000</strong></li>
             </ul>
           </div>
 
@@ -204,13 +258,17 @@ get_header();
             <h4>Who is it for?</h4>
             <p>Individuals paying for their own training.</p>
             <h4>What do you get?</h4>
+            <h5>Class A CDL</h5>
             <ul>
-              <li>Class A or Class B CDL training</li>
-              <li>ELDT classroom theory</li>
-              <li>Permit test prep</li>
-              <li>Behind-the-wheel training</li>
-              <li>Use of our equipment</li>
-              <li>CDL skills test</li>
+              <li>44 hrs behind the wheel</li>
+              <li>40 hrs online/in-class theory</li>
+              <li>Cost: <strong>$5,800</strong></li>
+            </ul>
+            <h5>Class B CDL</h5>
+            <ul>
+              <li>28 hrs behind the wheel</li>
+              <li>40 hrs online/in-class theory</li>
+              <li>Cost: <strong>$4,500</strong></li>
             </ul>
           </div>
         </div>

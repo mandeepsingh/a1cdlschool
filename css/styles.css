@@ -956,6 +956,10 @@ ol {
   margin: 72px 0 32px;
 }
 
+.section-head+.sub-head {
+  margin-top: 0;
+}
+
 .endorse {
   padding: 30px 28px;
 }
@@ -1742,6 +1746,22 @@ ol {
   background: var(--red);
 }
 
+.venn-part h5 {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 8px 0 2px;
+}
+
+.venn-part h4+h5 {
+  margin-top: 0;
+}
+
+.venn-part strong {
+  color: #fff;
+  font-weight: 800;
+}
+
 .venn-note {
   font-size: 13px;
   font-style: italic;
@@ -1879,7 +1899,12 @@ ol {
 
   .venn-part h4 {
     font-size: 3.3cqw;
-    margin: 2.2cqw 0 .6cqw;
+    margin: 1.6cqw 0 .4cqw;
+  }
+
+  .venn-part h5 {
+    font-size: 3cqw;
+    margin: .6cqw 0 0;
   }
 
   .venn-note {
@@ -1908,7 +1933,7 @@ ol {
 
   .venn-left {
     left: 14%;
-    top: 17.5%;
+    top: 12.5%;
     width: 72%;
   }
 
