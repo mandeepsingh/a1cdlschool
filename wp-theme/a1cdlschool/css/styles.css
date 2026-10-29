@@ -25,6 +25,7 @@
   --shadow-lg: 0 24px 60px rgba(17, 19, 24, .18);
   --container: 1240px;
   --header-h: 92px;
+  --topbar-h: 40px;
   --ease: cubic-bezier(.2, .7, .2, 1);
 }
 
@@ -36,7 +37,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-h) - 8px);
+  scroll-padding-top: calc(var(--topbar-h) + var(--header-h) - 8px);
 }
 
 body {
@@ -205,6 +206,10 @@ ol {
 
 /* ---------- Top bar ---------- */
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 101;
+  height: var(--topbar-h);
   background: #0a0b0e;
   color: #c5c9d2;
   font-size: 14px;
@@ -216,7 +221,7 @@ ol {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  min-height: 40px;
+  height: 100%;
 }
 
 .topbar-contact {
@@ -302,7 +307,7 @@ ol {
 /* ---------- Header ---------- */
 .site-header {
   position: sticky;
-  top: 0;
+  top: var(--topbar-h);
   z-index: 100;
   background: rgba(17, 19, 24, 1);
   backdrop-filter: saturate(140%) blur(8px);
@@ -1996,7 +2001,7 @@ ol {
     background: var(--ink);
     border-top: 1px solid var(--line-dark);
     padding: 12px 24px 28px;
-    max-height: calc(100vh - var(--header-h));
+    max-height: calc(100vh - var(--topbar-h) - var(--header-h));
     overflow-y: auto;
     transform: translateY(-12px);
     opacity: 0;

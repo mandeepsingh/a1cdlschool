@@ -381,7 +381,7 @@ get_header();
                 <circle cx="12" cy="12" r="9" />
                 <path d="M12 7v5l3 2" />
               </svg>
-              <div><small>Office hours</small><span>Mon–Fri 9am–6pm · Sat 1pm–6pm</span></div>
+              <div><small>Office hours</small><span>Mon–Fri 9am–6pm · Sat–Sun by appointment</span></div>
             </li>
           </ul>
         </div>

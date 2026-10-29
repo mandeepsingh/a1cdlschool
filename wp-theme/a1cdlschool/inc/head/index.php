@@ -55,12 +55,6 @@
               ],
               "opens": "09:00",
               "closes": "18:00"
-            },
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": "Saturday",
-              "opens": "13:00",
-              "closes": "18:00"
             }
           ],
           "areaServed": [
