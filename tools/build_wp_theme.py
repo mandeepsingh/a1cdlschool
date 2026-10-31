@@ -288,7 +288,7 @@ def build():
           " * @package A1CDLSchool\n */\n\nreturn array(\n" + "\n".join(titles) + "\n);\n")
 
     # Theme screenshot shown in Appearance > Themes (1200x900)
-    shot = Image.open(ROOT / "assets" / "truck-photo-2.jpg").convert("RGB")
+    shot = Image.open(ROOT / "assets" / "truck-photo-3.png").convert("RGB")
     w, h = shot.size
     scale = max(1200 / w, 900 / h)
     shot = shot.resize((round(w * scale), round(h * scale)), Image.LANCZOS)
