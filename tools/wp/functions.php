@@ -197,6 +197,31 @@ add_action(
 	1
 );
 
+/*
+ * /llms.txt from the static site's file, with its .html links pointed at the WordPress pages.
+ * WordPress core already serves /robots.txt and /wp-sitemap.xml.
+ */
+add_action(
+	'parse_request',
+	function ( $wp ) {
+		if ( 'llms.txt' !== $wp->request ) {
+			return;
+		}
+		$text = file_get_contents( get_theme_file_path( 'llms.txt' ) );
+		$text = preg_replace_callback(
+			'#https://a1cdlschool\.com/([\w-]*)(?:\.html)?#',
+			function ( $m ) {
+				return a1cdl_url( $m[1] ? $m[1] : 'index' );
+			},
+			$text
+		);
+		status_header( 200 );
+		header( 'Content-Type: text/plain; charset=utf-8' );
+		echo $text; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- plain text file
+		exit;
+	}
+);
+
 /* ---------- Contact form ---------- */
 
 function a1cdl_contact_form_fields() {
