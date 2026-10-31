@@ -20,6 +20,7 @@ js/main.js                    Menu, scroll effects and form validation
 assets/                       Images, logo and icons
 robots.txt, sitemap.xml       Search engine files for the plain HTML site
 tools/build_wp_theme.py       Builds the WordPress theme from the HTML pages
+tools/build_og_image.py       Builds the social share image (assets/og-image.jpg)
 tools/wp/functions.php        Source for the theme's functions.php
 wp-theme/a1cdlschool/         Generated WordPress theme (committed)
 ```
