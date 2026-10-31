@@ -266,6 +266,7 @@ def build():
     shutil.copytree(ROOT / "assets", THEME / "assets")
     (THEME / "css").mkdir()
     shutil.copy(ROOT / "css" / "styles.css", THEME / "css" / "styles.css")
+    shutil.copy(ROOT / "llms.txt", THEME / "llms.txt")
     (THEME / "js").mkdir()
 
     def write(rel, text):
