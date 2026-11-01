@@ -222,6 +222,50 @@ add_action(
 	}
 );
 
+/*
+ * The site is pages only, with no blog: keep the sitemap to pages, and send blog archives
+ * (author, category, tag, date) to the home page. This also stops the admin username from
+ * showing up in the sitemap and in /?author=1 redirects.
+ */
+add_filter(
+	'wp_sitemaps_add_provider',
+	function ( $provider, $name ) {
+		return in_array( $name, array( 'users', 'taxonomies' ), true ) ? false : $provider;
+	},
+	10,
+	2
+);
+
+add_filter(
+	'wp_sitemaps_post_types',
+	function ( $post_types ) {
+		unset( $post_types['post'] );
+		return $post_types;
+	}
+);
+
+add_action(
+	'template_redirect',
+	function () {
+		if ( is_author() || is_category() || is_tag() || is_date() ) {
+			wp_safe_redirect( home_url( '/' ), 301 );
+			exit;
+		}
+	},
+	1 // before redirect_canonical, which would send /?author=1 to /author/{username}/
+);
+
+// Hide the user list from the public REST API (the block editor still gets it when logged in)
+add_filter(
+	'rest_endpoints',
+	function ( $endpoints ) {
+		if ( ! is_user_logged_in() ) {
+			unset( $endpoints['/wp/v2/users'], $endpoints['/wp/v2/users/(?P<id>[\d]+)'] );
+		}
+		return $endpoints;
+	}
+);
+
 /* ---------- Contact form ---------- */
 
 function a1cdl_contact_form_fields() {
