@@ -2052,8 +2052,15 @@ ol {
     border-radius: 0;
     box-shadow: none;
     opacity: 1;
-    visibility: visible;
     transform: none;
+  }
+
+  /* Follow the menu's visibility (not "visible"), so the closed menu's links can't catch
+     taps on the page. Also overrides the desktop hover/focus rule, which sticks on touch. */
+  .main-nav .sub-nav,
+  .has-sub:hover .sub-nav,
+  .has-sub:focus-within .sub-nav {
+    visibility: inherit;
   }
 
   .main-nav .sub-nav::before {
