@@ -64,6 +64,7 @@
   });
 
   // Contact form validation
+  const success = form.querySelector(".form-success");
   const rules = {
     name: (v) => v.trim().length >= 2 || "Please enter your name.",
     phone: (v) => v.replace(/\D/g, "").length >= 10 || "Please enter a valid phone number.",
@@ -83,11 +84,31 @@
     input.addEventListener("blur", () => validate(input));
     input.addEventListener("input", () => { if (input.closest(".field").classList.contains("invalid")) validate(input); });
   });
-  // Let valid forms post to WordPress; block and focus the first invalid field otherwise
+  // Send valid forms to WordPress in the background, so the page doesn't reload and jump.
+  // Without JavaScript the form still posts normally and WordPress redirects back.
+  const error = form.querySelector(".form-error");
+  const button = form.querySelector('button[type="submit"]');
   form.addEventListener("submit", (e) => {
+    e.preventDefault();
     const inputs = Object.keys(rules).map((n) => form.elements[n]);
     const results = inputs.map(validate);
     const firstInvalid = inputs[results.indexOf(false)];
-    if (firstInvalid) { e.preventDefault(); firstInvalid.focus(); }
+    if (firstInvalid) { firstInvalid.focus(); return; }
+
+    const data = new FormData(form);
+    data.set("a1cdl_ajax", "1");
+    button.disabled = true;
+    success.hidden = true;
+    error.hidden = true;
+    // getAttribute: form.action would be the hidden input named "action" that WordPress needs
+    fetch(form.getAttribute("action"), { method: "POST", body: data, credentials: "same-origin" })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.status !== "sent") throw new Error(res.status);
+        form.reset();
+        success.hidden = false;
+      })
+      .catch(() => { error.hidden = false; })
+      .finally(() => { button.disabled = false; });
   });
 })();

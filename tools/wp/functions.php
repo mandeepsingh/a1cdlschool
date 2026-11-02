@@ -285,16 +285,22 @@ function a1cdl_contact_form_success_attr() {
 	echo 'sent' === a1cdl_contact_status() ? '' : ' hidden';
 }
 
+// Always printed, hidden unless needed, so main.js can show it after a background send
 function a1cdl_contact_form_error() {
-	if ( 'error' === a1cdl_contact_status() ) {
-		echo '<p class="form-error" role="alert">Sorry, your request could not be sent. Please call us at (937) 618-5304.</p>';
-	}
+	printf(
+		'<p class="form-error" role="alert"%s>Sorry, your request could not be sent. Please call us at (937) 618-5304.</p>',
+		'error' === a1cdl_contact_status() ? '' : ' hidden'
+	);
 }
 
 function a1cdl_handle_contact() {
 	$back_id = isset( $_POST['a1cdl_back'] ) ? absint( $_POST['a1cdl_back'] ) : 0;
 	$back    = $back_id && get_permalink( $back_id ) ? get_permalink( $back_id ) : home_url( '/' );
 	$done = function ( $status ) use ( $back ) {
+		// Sent in the background by main.js: answer with the status instead of reloading the page
+		if ( ! empty( $_POST['a1cdl_ajax'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce is checked before sending
+			wp_send_json( array( 'status' => $status ) );
+		}
 		wp_safe_redirect( add_query_arg( 'contact', $status, $back ) . '#contact' );
 		exit;
 	};
@@ -319,10 +325,25 @@ function a1cdl_handle_contact() {
 
 	$to      = apply_filters( 'a1cdl_contact_recipient', get_option( 'admin_email' ) );
 	$subject = sprintf( 'New information request from %s', $name );
-	$body    = "Name: {$name}\nPhone: {$phone}\nEmail: {$email}\nProgram: {$program}\n\nMessage:\n{$message}\n";
-	$headers = array( sprintf( 'Reply-To: %s <%s>', $name, $email ) );
+	$text    = "Name: {$name}\nPhone: {$phone}\nEmail: {$email}\nProgram: {$program}\n\nMessage:\n{$message}\n";
+	$headers = array( sprintf( 'Reply-To: %s <%s>', $name, $email ), 'Content-Type: text/html; charset=UTF-8' );
 
-	$done( wp_mail( $to, $subject, $body, $headers ) ? 'sent' : 'error' );
+	// Branded HTML email, with the plain text version for email apps that don't show HTML
+	$alt_body = function ( $phpmailer ) use ( $text ) {
+		$phpmailer->AltBody = $text; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+	};
+	add_action( 'phpmailer_init', $alt_body );
+	$sent = wp_mail( $to, $subject, a1cdl_contact_email_html( compact( 'name', 'phone', 'email', 'program', 'message' ) ), $headers );
+	remove_action( 'phpmailer_init', $alt_body );
+
+	$done( $sent ? 'sent' : 'error' );
+}
+
+function a1cdl_contact_email_html( $fields ) {
+	extract( $fields ); // phpcs:ignore WordPress.PHP.DontExtract.extract_extract -- template variables
+	ob_start();
+	include get_theme_file_path( 'inc/email-contact.php' );
+	return ob_get_clean();
 }
 add_action( 'admin_post_a1cdl_contact', 'a1cdl_handle_contact' );
 add_action( 'admin_post_nopriv_a1cdl_contact', 'a1cdl_handle_contact' );
