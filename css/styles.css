@@ -1683,7 +1683,7 @@ ol {
   position: relative;
   max-width: 1000px;
   aspect-ratio: 1000 / 600;
-  margin: 0 auto;
+  margin: 84px auto 0;
   color: #d6d9e0;
   font-size: 15px;
   line-height: 1.5;
@@ -1700,13 +1700,6 @@ ol {
 
 .venn-shapes-v {
   display: none;
-}
-
-.venn-arc-text {
-  fill: #fff;
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: .02em;
 }
 
 .venn-part {
@@ -1773,15 +1766,47 @@ ol {
   color: #9aa1ad;
 }
 
+/* Circle titles, outside the circles (the h3s inside stay for screen readers) */
+.venn-labels span {
+  position: absolute;
+  bottom: calc(100% + 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+  color: var(--heading);
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.venn-labels span::after {
+  content: "";
+  width: 48px;
+  height: 4px;
+  margin-top: 12px;
+  border-radius: 2px;
+  background: var(--red);
+}
+
+.venn-labels span:first-child {
+  left: 33%;
+}
+
+.venn-labels span:last-child {
+  left: 67%;
+}
+
 .venn-left {
   left: 13%;
-  top: 30%;
+  top: 26%;
   width: 25%;
 }
 
 .venn-right {
   left: 62%;
-  top: 30%;
+  top: 26%;
   width: 26%;
 }
 
@@ -1801,7 +1826,7 @@ ol {
   clip: auto;
   white-space: normal;
   color: #fff;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 900;
   text-transform: uppercase;
   line-height: 1.15;
@@ -1876,6 +1901,7 @@ ol {
     container-type: inline-size;
     aspect-ratio: 600 / 960;
     max-width: 520px;
+    margin: 18cqw auto;
     text-align: center;
   }
 
@@ -1893,8 +1919,30 @@ ol {
     filter: drop-shadow(0 20px 32px rgba(17, 19, 24, .22));
   }
 
-  .venn-shapes-v .venn-arc-text {
-    font-size: 36px;
+  .venn-labels span {
+    bottom: calc(100% + 4cqw);
+    font-size: 6.4cqw;
+  }
+
+  .venn-labels span:first-child,
+  .venn-labels span:last-child {
+    left: 50%;
+  }
+
+  .venn-labels span::after {
+    width: 9cqw;
+    height: .8cqw;
+    margin-top: 2cqw;
+  }
+
+  .venn-labels span:last-child {
+    top: calc(100% + 4cqw);
+    bottom: auto;
+    flex-direction: column-reverse;
+  }
+
+  .venn-labels span:last-child::after {
+    margin: 0 0 2cqw;
   }
 
   .venn-part {
@@ -1938,7 +1986,7 @@ ol {
 
   .venn-left {
     left: 14%;
-    top: 12.5%;
+    top: 12%;
     width: 72%;
   }
 
@@ -1971,9 +2019,9 @@ ol {
   }
 
   .venn-right {
-    left: 14%;
+    left: 19%;
     top: 62.3%;
-    width: 72%;
+    width: 62%;
   }
 
   :root {
