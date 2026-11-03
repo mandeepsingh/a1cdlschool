@@ -1288,10 +1288,6 @@ ol {
   font-size: 14px;
 }
 
-.to-top:hover {
-  color: var(--red) !important;
-}
-
 /* ---------- Legal pages ---------- */
 .page-hero {
   background: var(--ink);

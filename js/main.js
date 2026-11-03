@@ -34,6 +34,13 @@
   }, { rootMargin: "-45% 0px -50% 0px" });
   sections.forEach((s) => spy.observe(s));
 
+  // Home links scroll to the top without adding #home to the URL
+  document.querySelectorAll('a[href="#home"]').forEach((link) => link.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo(0, 0);
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  }));
+
   // Reveal on scroll
   const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {

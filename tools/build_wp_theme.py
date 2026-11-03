@@ -87,8 +87,10 @@ def page_title(page):
 
 
 def nav_key(href):
+    if href == "index.html":
+        return "home"
     if href.startswith("index.html#"):
-        return href.split("#")[1]  # home / training
+        return href.split("#")[1]  # training
     return href[:-len(".html")]
 
 

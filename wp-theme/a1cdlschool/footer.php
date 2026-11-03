@@ -66,7 +66,6 @@
         <li><a href="<?php echo esc_url( a1cdl_link( 'privacy' ) ); ?>">Privacy Policy</a></li>
         <li><a href="<?php echo esc_url( a1cdl_link( 'terms' ) ); ?>">Terms &amp; Conditions</a></li>
       </ul>
-      <a href="#top" class="to-top">Back to top ↑</a>
     </div>
   </footer>
 

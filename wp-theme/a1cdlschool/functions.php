@@ -101,12 +101,13 @@ function a1cdl_url( $key, $fragment = '' ) {
 }
 
 /**
- * Link for markup: home page sections become plain #anchors on the home page itself,
- * so the nav scroll highlighting in main.js keeps working.
+ * Link for markup: home page links become plain #anchors on the home page itself,
+ * so the nav scroll highlighting in main.js keeps working. A link to the home page
+ * with no section becomes #home, which main.js scrolls to without changing the URL.
  */
 function a1cdl_link( $key, $fragment = '' ) {
-	if ( 'index' === $key && $fragment && is_front_page() ) {
-		return '#' . $fragment;
+	if ( 'index' === $key && is_front_page() ) {
+		return '#' . ( $fragment ? $fragment : 'home' );
 	}
 	return a1cdl_url( $key, $fragment );
 }

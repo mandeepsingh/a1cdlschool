@@ -60,13 +60,13 @@
   <!-- ============ Header ============ -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="<?php echo esc_url( a1cdl_link( 'index', 'home' ) ); ?>" class="brand" aria-label="A1 CDL School home">
+      <a href="<?php echo esc_url( a1cdl_link( 'index' ) ); ?>" class="brand" aria-label="A1 CDL School home">
         <img src="<?php echo esc_url( a1cdl_asset( 'logo-white.png' ) ); ?>" alt="A1 CDL School" width="600" height="301" />
       </a>
 
       <nav class="main-nav" id="main-nav" aria-label="Primary">
         <ul>
-          <li><a href="<?php echo esc_url( a1cdl_link( 'index', 'home' ) ); ?>"<?php a1cdl_nav_attrs( 'home' ); ?>>Home</a></li>
+          <li><a href="<?php echo esc_url( a1cdl_link( 'index' ) ); ?>"<?php a1cdl_nav_attrs( 'home' ); ?>>Home</a></li>
           <li class="has-sub">
             <a href="<?php echo esc_url( a1cdl_link( 'index', 'training' ) ); ?>"<?php a1cdl_nav_attrs( 'training' ); ?>>CDL Training <svg class="caret" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6 9l6 6 6-6" />
