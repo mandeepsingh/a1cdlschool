@@ -60,8 +60,8 @@
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Contact form (home page only)
-  const form = document.getElementById("contact-form");
+  // Contact form, or the schedule form on the CDL Testing page
+  const form = document.getElementById("contact-form") || document.getElementById("schedule-form");
   if (!form) return;
 
   // Program buttons preselect the program in the contact form
@@ -77,6 +77,30 @@
     phone: (v) => v.replace(/\D/g, "").length >= 10 || "Please enter a valid phone number.",
     email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || "Please enter a valid email address.",
   };
+
+  // Schedule form: estimated total, and a preferred day that can't be in the past
+  const { service, test, practice, cdl_class: cdlClass, preferred_date: preferredDate } = form.elements;
+  if (service) {
+    // For display only: WordPress works out the total itself from the same prices
+    const showTotal = () => {
+      const total = Number(test.selectedOptions[0].dataset.fee) + Number(practice.selectedOptions[0].dataset.fee)
+        + (service.value === "CDL test only" ? 0 : Number(cdlClass.selectedOptions[0].dataset.rental));
+      document.getElementById("schedule-total").textContent = "$" + total.toLocaleString("en-US");
+    };
+    [service, test, practice, cdlClass].forEach((el) => el.addEventListener("change", showTotal));
+    form.addEventListener("reset", () => setTimeout(showTotal));
+    showTotal();
+    // Book Practice Time starts the form with a practice session chosen
+    document.querySelectorAll("[data-practice]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        practice.value = [...practice.options].find((o) => o.value.startsWith(btn.dataset.practice)).value;
+        showTotal();
+      });
+    });
+    const today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    preferredDate.min = today;
+    rules.preferred_date = (v) => v >= today || "Please choose a day that hasn't passed.";
+  }
   const validate = (input) => {
     const result = rules[input.name](input.value);
     const field = input.closest(".field");

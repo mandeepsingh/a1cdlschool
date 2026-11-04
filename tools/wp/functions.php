@@ -267,13 +267,13 @@ add_filter(
 	}
 );
 
-/* ---------- Contact form ---------- */
+/* ---------- Contact and schedule forms ---------- */
 
-function a1cdl_contact_form_fields() {
-	echo '<input type="hidden" name="action" value="a1cdl_contact" />';
+function a1cdl_contact_form_fields( $action = 'a1cdl_contact' ) {
+	printf( '<input type="hidden" name="action" value="%s" />', esc_attr( $action ) );
 	// Page to return to after sending (0 = home page)
 	printf( '<input type="hidden" name="a1cdl_back" value="%d" />', is_front_page() ? 0 : (int) get_queried_object_id() );
-	wp_nonce_field( 'a1cdl_contact', 'a1cdl_nonce', false );
+	wp_nonce_field( $action, 'a1cdl_nonce', false );
 	// Honeypot: hidden from people, bots tend to fill it in
 	echo '<div style="position:absolute;left:-9999px" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>';
 }
@@ -294,50 +294,71 @@ function a1cdl_contact_form_error() {
 	);
 }
 
-function a1cdl_handle_contact() {
-	$back_id = isset( $_POST['a1cdl_back'] ) ? absint( $_POST['a1cdl_back'] ) : 0;
+/**
+ * Finish a form request and exit: a status for a background send from main.js,
+ * otherwise a redirect back to the form.
+ */
+function a1cdl_form_done( $status, $fragment ) {
+	if ( ! empty( $_POST['a1cdl_ajax'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce is checked before sending
+		wp_send_json( array( 'status' => $status ) );
+	}
+	$back_id = isset( $_POST['a1cdl_back'] ) ? absint( $_POST['a1cdl_back'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Missing
 	$back    = $back_id && get_permalink( $back_id ) ? get_permalink( $back_id ) : home_url( '/' );
-	$done = function ( $status ) use ( $back ) {
-		// Sent in the background by main.js: answer with the status instead of reloading the page
-		if ( ! empty( $_POST['a1cdl_ajax'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce is checked before sending
-			wp_send_json( array( 'status' => $status ) );
-		}
-		wp_safe_redirect( add_query_arg( 'contact', $status, $back ) . '#contact' );
-		exit;
-	};
+	wp_safe_redirect( add_query_arg( 'contact', $status, $back ) . '#' . $fragment );
+	exit;
+}
 
+function a1cdl_form_value( $key ) {
+	return sanitize_text_field( wp_unslash( isset( $_POST[ $key ] ) ? $_POST[ $key ] : '' ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- nonce is checked by a1cdl_read_form
+}
+
+/**
+ * Spam and nonce checks, then the fields both forms share. Finishes the request if any of them fail.
+ * The name, phone and email rules match the browser-side validation in main.js.
+ */
+function a1cdl_read_form( $action, $fragment ) {
 	if ( ! empty( $_POST['website'] ) ) {
-		$done( 'sent' ); // bot: pretend it worked
+		a1cdl_form_done( 'sent', $fragment ); // bot: pretend it worked
 	}
-	if ( ! isset( $_POST['a1cdl_nonce'] ) || ! wp_verify_nonce( sanitize_key( wp_unslash( $_POST['a1cdl_nonce'] ) ), 'a1cdl_contact' ) ) {
-		$done( 'error' );
+	if ( ! isset( $_POST['a1cdl_nonce'] ) || ! wp_verify_nonce( sanitize_key( wp_unslash( $_POST['a1cdl_nonce'] ) ), $action ) ) {
+		a1cdl_form_done( 'error', $fragment );
 	}
 
-	$name    = sanitize_text_field( wp_unslash( isset( $_POST['name'] ) ? $_POST['name'] : '' ) );
-	$phone   = sanitize_text_field( wp_unslash( isset( $_POST['phone'] ) ? $_POST['phone'] : '' ) );
-	$email   = sanitize_email( wp_unslash( isset( $_POST['email'] ) ? $_POST['email'] : '' ) );
-	$program = sanitize_text_field( wp_unslash( isset( $_POST['program'] ) ? $_POST['program'] : '' ) );
-	$message = sanitize_textarea_field( wp_unslash( isset( $_POST['message'] ) ? $_POST['message'] : '' ) );
-
-	// Same rules as the browser-side validation in main.js
+	$name  = a1cdl_form_value( 'name' );
+	$phone = a1cdl_form_value( 'phone' );
+	$email = sanitize_email( wp_unslash( isset( $_POST['email'] ) ? $_POST['email'] : '' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 	if ( strlen( $name ) < 2 || strlen( preg_replace( '/\D/', '', $phone ) ) < 10 || ! is_email( $email ) ) {
-		$done( 'error' );
+		a1cdl_form_done( 'error', $fragment );
 	}
 
-	$to      = apply_filters( 'a1cdl_contact_recipient', get_option( 'admin_email' ) );
-	$subject = sprintf( 'New information request from %s', $name );
-	$text    = "Name: {$name}\nPhone: {$phone}\nEmail: {$email}\nProgram: {$program}\n\nMessage:\n{$message}\n";
-	$headers = array( sprintf( 'Reply-To: %s <%s>', $name, $email ), 'Content-Type: text/html; charset=UTF-8' );
+	$message = sanitize_textarea_field( wp_unslash( isset( $_POST['message'] ) ? $_POST['message'] : '' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	return compact( 'name', 'phone', 'email', 'message' );
+}
 
-	// Branded HTML email, with the plain text version for email apps that don't show HTML
+/**
+ * Send a branded HTML email, with a plain text version for email apps that don't show HTML.
+ *
+ * @param string $to      Recipient.
+ * @param string $subject Subject line.
+ * @param array  $fields  From a1cdl_read_form().
+ * @param array  $content 'heading', 'source', 'preheader', and 'details' (label => plain text).
+ * @return bool Whether the email was sent.
+ */
+function a1cdl_send_form_email( $to, $subject, $fields, $content ) {
+	$text = "Name: {$fields['name']}\nPhone: {$fields['phone']}\nEmail: {$fields['email']}\n";
+	foreach ( $content['details'] as $label => $value ) {
+		$text .= "{$label}: {$value}\n";
+	}
+	$text .= "\nMessage:\n{$fields['message']}\n";
+
+	$headers  = array( sprintf( 'Reply-To: %s <%s>', $fields['name'], $fields['email'] ), 'Content-Type: text/html; charset=UTF-8' );
 	$alt_body = function ( $phpmailer ) use ( $text ) {
 		$phpmailer->AltBody = $text; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 	};
 	add_action( 'phpmailer_init', $alt_body );
-	$sent = wp_mail( $to, $subject, a1cdl_contact_email_html( compact( 'name', 'phone', 'email', 'program', 'message' ) ), $headers );
+	$sent = wp_mail( $to, $subject, a1cdl_contact_email_html( array_merge( $fields, $content ) ), $headers );
 	remove_action( 'phpmailer_init', $alt_body );
-
-	$done( $sent ? 'sent' : 'error' );
+	return $sent;
 }
 
 function a1cdl_contact_email_html( $fields ) {
@@ -346,8 +367,83 @@ function a1cdl_contact_email_html( $fields ) {
 	include get_theme_file_path( 'inc/email-contact.php' );
 	return ob_get_clean();
 }
+
+function a1cdl_handle_contact() {
+	$fields  = a1cdl_read_form( 'a1cdl_contact', 'contact' );
+	$program = a1cdl_form_value( 'program' );
+
+	$sent = a1cdl_send_form_email(
+		apply_filters( 'a1cdl_contact_recipient', get_option( 'admin_email' ) ),
+		sprintf( 'Information Request from %s', $fields['name'] ),
+		$fields,
+		array(
+			'heading'   => 'Information Request',
+			'source'    => 'contact form',
+			'preheader' => sprintf( '%s is interested in %s. Call %s.', $fields['name'], $program ? $program : 'CDL training', $fields['phone'] ),
+			'details'   => array( 'Program' => $program ? $program : 'Not given' ),
+		)
+	);
+	a1cdl_form_done( $sent ? 'sent' : 'error', 'contact' );
+}
 add_action( 'admin_post_a1cdl_contact', 'a1cdl_handle_contact' );
 add_action( 'admin_post_nopriv_a1cdl_contact', 'a1cdl_handle_contact' );
+
+function a1cdl_handle_schedule() {
+	$fields = a1cdl_read_form( 'a1cdl_schedule', 'schedule' );
+
+	// Every dropdown must be one of the choices on the page. Generated from the form by tools/build_wp_theme.py.
+	$options = include get_theme_file_path( 'inc/schedule-options.php' );
+	$choices = array();
+	foreach ( $options as $key => $allowed ) {
+		$choices[ $key ] = a1cdl_form_value( $key );
+		if ( ! isset( $allowed[ $choices[ $key ] ] ) ) {
+			a1cdl_form_done( 'error', 'schedule' );
+		}
+	}
+	$service = $choices['service'];
+	$time    = $choices['preferred_time'];
+
+	// The total always comes from these prices, never from the browser
+	$rental = 'CDL test only' !== $service ? $options['cdl_class'][ $choices['cdl_class'] ] : 0;
+	$total  = $options['test'][ $choices['test'] ] + $options['practice'][ $choices['practice'] ] + $rental;
+
+	// Same rule as main.js: a real date that hasn't passed. One day of leeway for visitors in other time zones.
+	$raw_date = a1cdl_form_value( 'preferred_date' );
+	$date     = DateTime::createFromFormat( '!Y-m-d', $raw_date );
+	if ( ! $date || $date->format( 'Y-m-d' ) !== $raw_date || $raw_date < wp_date( 'Y-m-d', time() - DAY_IN_SECONDS ) ) {
+		a1cdl_form_done( 'error', 'schedule' );
+	}
+
+	$details = array(
+		'Service' => $service,
+		'Class'   => $choices['cdl_class'],
+		'Test'    => $choices['test'],
+	);
+	if ( $rental > 0 ) {
+		$details['Truck rental'] = '$' . number_format( $rental );
+	}
+	if ( $options['practice'][ $choices['practice'] ] > 0 ) {
+		$details['Practice'] = $choices['practice'];
+	}
+	$details['Estimated total'] = '$' . number_format( $total );
+	$details['Preferred day']  = $date->format( 'l, F j, Y' );
+	$details['Preferred time'] = $time;
+
+	$sent = a1cdl_send_form_email(
+		apply_filters( 'a1cdl_contact_recipient', get_option( 'admin_email' ) ),
+		sprintf( 'Appointment Request from %s', $fields['name'] ),
+		$fields,
+		array(
+			'heading'   => 'Appointment Request',
+			'source'    => 'CDL Testing schedule form',
+			'preheader' => sprintf( '%s requested %s, %s. Call %s.', $fields['name'], $details['Preferred day'], $time, $fields['phone'] ),
+			'details'   => $details,
+		)
+	);
+	a1cdl_form_done( $sent ? 'sent' : 'error', 'schedule' );
+}
+add_action( 'admin_post_a1cdl_schedule', 'a1cdl_handle_schedule' );
+add_action( 'admin_post_nopriv_a1cdl_schedule', 'a1cdl_handle_schedule' );
 
 /* ---------- First-time setup ---------- */
 

@@ -6,6 +6,7 @@ The static HTML pages stay the source of truth. Run this after editing them:
 
 Output: wp-theme/a1cdlschool/ (the theme) and wp-theme/a1cdlschool.zip (ready to upload).
 """
+import html
 import re
 import shutil
 import zipfile
@@ -155,17 +156,42 @@ def build_footer():
 """
 
 
-FORM_OPEN = '<form class="contact-form reveal" id="contact-form" novalidate>'
+FORMS = {  # form id -> WordPress action
+    "contact-form": "a1cdl_contact",
+    "schedule-form": "a1cdl_schedule",
+}
 FORM_SUCCESS = '<p class="form-success" role="status" hidden>'
+
+
+def build_schedule_options():
+    """Allowed dropdown choices and their prices, read from the schedule form so prices live in one place."""
+    form = between(read("cdl-testing"), '<form class="contact-form reveal" id="schedule-form"', "</form>")
+    groups = []
+    for name, body in re.findall(r'<select id="[\w-]+" name="([\w-]+)">(.*?)</select>', form, re.S):
+        rows = []
+        for fee, label in re.findall(r'<option(?: data-(?:fee|rental)="(\d+)")?>(.*?)</option>', body):
+            label = html.unescape(label)
+            shown = re.search(r"\$([\d,]+)", label)
+            if shown:
+                assert shown[1].replace(",", "") == fee, f"price mismatch in schedule form: {label} / {fee}"
+            rows.append(f"\t\t{php_str(label)} => {int(fee or 0)},")
+        assert rows, f"no options for {name}"
+        groups.append(f"\t{php_str(name)} => array(\n" + "\n".join(rows) + "\n\t),")
+    assert {"service", "cdl_class", "test", "preferred_time", "practice"} == set(re.findall(r'<select id="[\w-]+" name="([\w-]+)">', form))
+    return ("<?php\n/**\n * Schedule form choices and prices (generated from cdl-testing.html).\n *\n"
+            " * @package A1CDLSchool\n */\n\nreturn array(\n" + "\n".join(groups) + "\n);\n")
 
 
 def build_template(page):
     main = between(read(page), "<main", "</main>") + "</main>"
-    if FORM_OPEN in main:
-        main = main.replace(FORM_OPEN, (
-            '<form class="contact-form reveal" id="contact-form" method="post" '
+    for form_id, action in FORMS.items():
+        form_open = f'<form class="contact-form reveal" id="{form_id}" novalidate>'
+        if form_open not in main:
+            continue
+        main = main.replace(form_open, (
+            f'<form class="contact-form reveal" id="{form_id}" method="post" '
             'action="<?php echo esc_url( admin_url( \'admin-post.php\' ) ); ?>" novalidate>\n'
-            "          <?php a1cdl_contact_form_fields(); ?>"))
+            f"          <?php a1cdl_contact_form_fields( {php_str(action)} ); ?>"))
         assert FORM_SUCCESS in main
         main = main.replace(FORM_SUCCESS, '<?php a1cdl_contact_form_error(); ?>\n          '
                             '<p class="form-success" role="status"<?php a1cdl_contact_form_success_attr(); ?>>')
@@ -299,6 +325,7 @@ def build():
     write("footer.php", build_footer())
     write("functions.php", (ROOT / "tools" / "wp" / "functions.php").read_text(encoding="utf-8"))
     write("inc/email-contact.php", (ROOT / "tools" / "wp" / "email-contact.php").read_text(encoding="utf-8"))
+    write("inc/schedule-options.php", build_schedule_options())
     write("page.php", GENERIC_TEMPLATE.format(doc="Default template for pages without their own template."))
     write("index.php", GENERIC_TEMPLATE.format(doc="Fallback template."))
 

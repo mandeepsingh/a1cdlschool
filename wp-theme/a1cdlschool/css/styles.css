@@ -1223,6 +1223,107 @@ ol {
   font-size: 15px;
 }
 
+.card-wide {
+  grid-column: 1 / -1;
+}
+
+.card-wide .btn {
+  align-self: flex-start;
+}
+
+.schedule-grid .cost-list small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Same two columns as .form-row, so the button lines up with the right column */
+.schedule-submit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.schedule-total {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.schedule-total strong {
+  display: block;
+  color: var(--red);
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.schedule-submit .btn {
+  width: 100%;
+  padding-inline: 18px;
+  white-space: nowrap;
+}
+
+/* One-column form on phones: keep the total beside the button, which needs more room */
+@media (max-width: 640px) {
+  .schedule-submit {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+/* Very narrow phones: no room for the total and button side by side */
+@media (max-width: 380px) {
+  .schedule-submit {
+    grid-template-columns: 1fr;
+  }
+}
+
+.schedule-grid .field textarea {
+  height: 50px;
+  min-height: 50px;
+}
+
+.schedule-grid .contact-info h3 {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* Date boxes and dropdowns render at different heights by default */
+.schedule-grid .field input,
+.schedule-grid .field select {
+  height: 50px;
+}
+
+/* ---------- Eligibility box ---------- */
+.eligibility {
+  max-width: 780px;
+  margin: 48px auto 0;
+  padding: 22px 26px;
+  background: var(--bg-soft);
+  border-left: 4px solid var(--red);
+  border-radius: 8px;
+}
+
+.eligibility h3 {
+  margin-bottom: 10px;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.eligibility ol {
+  margin: 0;
+  padding-left: 22px;
+  list-style: decimal;
+  font-size: 16px;
+}
+
+.eligibility li + li {
+  margin-top: 4px;
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   background: var(--ink);
@@ -1492,10 +1593,6 @@ ol {
 
 .card-featured .cost-list dd {
   color: #fff;
-}
-
-.policy-list dd {
-  text-align: right;
 }
 
 .card .text-link {

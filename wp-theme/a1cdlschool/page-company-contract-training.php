@@ -257,6 +257,14 @@ get_header();
             </ul>
           </div>
         </div>
+        <div class="eligibility reveal">
+          <h3>Eligibility Requirements</h3>
+          <ol>
+            <li>Must be a U.S. citizen, OR</li>
+            <li>Must be a lawful permanent resident (Green card holder)</li>
+            <li>Permanent residents must possess a valid 10-year Green Card.</li>
+          </ol>
+        </div>
       </div>
     </section>
 

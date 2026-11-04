@@ -1,11 +1,11 @@
   <meta name="description"
-    content="Schedule your Class A or Class B CDL skills test in Dayton, Ohio. Full, partial and driving-only tests in our equipment." />
+    content="Schedule your Class A or Class B CDL skills test in Dayton, Ohio. Full, skills and road, and road-only tests, with truck rental available." />
   <meta name="theme-color" content="#111318" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="A1 CDL School" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="CDL Skills Testing in Dayton, Ohio | A1 CDL School" />
-  <meta property="og:description" content="Schedule your Class A or Class B CDL skills test in Dayton, Ohio. Full, partial and driving-only tests in our equipment." />
+  <meta property="og:description" content="Schedule your Class A or Class B CDL skills test in Dayton, Ohio. Full, skills and road, and road-only tests, with truck rental available." />
   <meta property="og:url" content="<?php echo esc_url( a1cdl_url( 'cdl-testing' ) ); ?>" />
   <meta property="og:image" content="<?php echo esc_url( a1cdl_asset( 'og-image.jpg' ) ); ?>" />
   <meta property="og:image:width" content="1200" />
@@ -13,7 +13,7 @@
   <meta property="og:image:alt" content="A1 CDL School: Class A and Class B CDL training in Dayton, Ohio" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CDL Skills Testing in Dayton, Ohio | A1 CDL School" />
-  <meta name="twitter:description" content="Schedule your Class A or Class B CDL skills test in Dayton, Ohio. Full, partial and driving-only tests in our equipment." />
+  <meta name="twitter:description" content="Schedule your Class A or Class B CDL skills test in Dayton, Ohio. Full, skills and road, and road-only tests, with truck rental available." />
   <meta name="twitter:image" content="<?php echo esc_url( a1cdl_asset( 'og-image.jpg' ) ); ?>" />
   <meta name="twitter:image:alt" content="A1 CDL School: Class A and Class B CDL training in Dayton, Ohio" />
   <script type="application/ld+json">
@@ -52,7 +52,7 @@
               "name": "Can I use your equipment for my test?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Using our equipment is a good option if you don't have a properly registered, insured and test-ready commercial vehicle."
+                "text": "Yes. Truck rental is $250 for Class A or $225 for Class B, added to your test fee."
               }
             },
             {
@@ -100,7 +100,15 @@
               "name": "How do I schedule my CDL test?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Contact us or call (937) 618-5304. We will go over your options, available dates, equipment, cost and what to bring on test day."
+                "text": "Request an appointment or call (937) 618-5304. We will go over your options, available dates, equipment, cost and what to bring on test day."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who is eligible to test with A1 CDL School?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Must be a U.S. citizen, OR must be a lawful permanent resident (Green card holder). Permanent residents must possess a valid 10-year Green Card."
               }
             }
           ]

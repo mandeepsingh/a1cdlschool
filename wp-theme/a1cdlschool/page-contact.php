@@ -58,7 +58,7 @@ get_header();
         </div>
 
         <form class="contact-form reveal" id="contact-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" novalidate>
-          <?php a1cdl_contact_form_fields(); ?>
+          <?php a1cdl_contact_form_fields( 'a1cdl_contact' ); ?>
           <h3>Request Information</h3>
           <div class="form-row">
             <div class="field">

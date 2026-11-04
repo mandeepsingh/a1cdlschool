@@ -9,7 +9,7 @@ get_header();
 ?>
 
   <main id="main">
-    <!-- Prices come from the client's pricing update. The $165 full test price is pending client confirmation.
+    <!-- Prices come from the client's pricing update. Test and rental prices come from the client's CDL testing flyer.
          Keep these in sync with the program and testing pages. -->
 
     <section class="page-hero page-hero-photo">
@@ -146,7 +146,7 @@ get_header();
         <div class="section-head reveal">
           <span class="rule" aria-hidden="true"></span>
           <h2>CDL Testing <span class="text-red">Prices</span></h2>
-          <p>Class A or Class B skills testing in A1 Truck Rental equipment.</p>
+          <p>Class A or Class B skills testing, with truck rental available.</p>
         </div>
         <div class="table-wrap reveal">
           <table class="price-table">
@@ -164,14 +164,24 @@ get_header();
                 <td>$165</td>
               </tr>
               <tr>
-                <th scope="row">Partial Test</th>
+                <th scope="row">Skills &amp; Road</th>
                 <td>Maneuvers, road test</td>
                 <td>$135</td>
               </tr>
               <tr>
-                <th scope="row">Driving Only</th>
+                <th scope="row">Road Only</th>
                 <td>Road test</td>
                 <td>$85</td>
+              </tr>
+              <tr>
+                <th scope="row">Truck Rental: Class A</th>
+                <td>Added to your test fee</td>
+                <td>$250</td>
+              </tr>
+              <tr>
+                <th scope="row">Truck Rental: Class B</th>
+                <td>Added to your test fee</td>
+                <td>$225</td>
               </tr>
               <tr>
                 <th scope="row">Practice: 1 Hour</th>
@@ -283,6 +293,14 @@ get_header();
               <li>Cost: <strong>$4,500</strong></li>
             </ul>
           </div>
+        </div>
+        <div class="eligibility reveal">
+          <h3>Eligibility Requirements</h3>
+          <ol>
+            <li>Must be a U.S. citizen, OR</li>
+            <li>Must be a lawful permanent resident (Green card holder)</li>
+            <li>Permanent residents must possess a valid 10-year Green Card.</li>
+          </ol>
         </div>
       </div>
     </section>

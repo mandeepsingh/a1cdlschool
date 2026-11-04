@@ -9,16 +9,16 @@ get_header();
 ?>
 
   <main id="main">
-    <!-- Test prices and practice rates come from the client's pricing update; the $165 full test price is pending
-         client confirmation. PLACEHOLDER CONTENT: the cancellation policy and third-party testing status are sample
-         details. Confirm A1 CDL School is an approved Ohio third-party CDL testing site before launch. -->
+    <!-- Test and rental prices come from the client's CDL testing flyer; practice rates come from the client's
+         pricing update. The cancellation policy comes from the flyer. PLACEHOLDER CONTENT: the third-party testing status is a sample
+         detail. Confirm A1 CDL School is an approved Ohio third-party CDL testing site before launch. -->
 
     <section class="page-hero page-hero-photo hero-testing">
       <div class="container">
         <span class="rule"></span>
         <h1>CDL Testing</h1>
-        <p>Ready to take your CDL test? Schedule your Class A or Class B skills test in our equipment.</p>
-        <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-primary btn-lg">Schedule Your Test <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+        <p>Ready to take your CDL test? Schedule your Class A or Class B skills test, with truck rental available.</p>
+        <a href="#schedule" class="btn btn-primary btn-lg">Schedule Your Test <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M9 6l6 6-6 6" />
               </svg></a>
       </div>
@@ -29,54 +29,133 @@ get_header();
         <div class="section-head reveal">
           <span class="rule" aria-hidden="true"></span>
           <h2>Test with <span class="text-red">Confidence</span></h2>
-          <p>A1 CDL School is a third-party CDL testing site offering Class A and Class B skills tests at our Dayton training yard. Test in our equipment, whether you trained with us or somewhere else.</p>
+          <p>A1 CDL School is a third-party CDL testing site offering Class A and Class B skills tests at our Dayton training yard. Truck rental is available, whether you trained with us or somewhere else.</p>
         </div>
       </div>
     </section>
 
-    <section class="section bg-soft">
+    <section class="section bg-soft" id="schedule">
       <div class="container">
         <div class="section-head reveal">
           <span class="rule" aria-hidden="true"></span>
-          <h2>Testing Options &amp; <span class="text-red">Pricing</span></h2>
-          <p>Choose the test you need for a Class A or Class B CDL. All tests are taken in A1 Truck Rental equipment.</p>
+          <h2>Request an <span class="text-red">Appointment</span></h2>
+          <p>Choose your test, tell us when you'd like to come in, and we'll contact you to confirm.</p>
         </div>
-        <div class="cards">
-          <article class="card card-featured reveal">
-            <div class="card-tag">Most popular</div>
-            <h3>Full Test</h3>
-            <p class="card-price">$165</p>
-            <p class="card-desc">The complete CDL skills test for Class A or Class B.</p>
-            <ul class="checklist small">
-              <li>Pre-trip inspection</li>
-              <li>Basic vehicle control (maneuvers)</li>
-              <li>On-road driving test</li>
-            </ul>
-            <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-primary">Schedule Test</a>
-          </article>
+        <div class="contact-grid schedule-grid">
+          <div class="contact-info reveal">
+            <h3>Tests &amp; Fees</h3>
+            <dl class="cost-list">
+              <div>
+                <dt>Full Test<small>Pre-trip inspection, maneuvers and road test</small></dt>
+                <dd>$165</dd>
+              </div>
+              <div>
+                <dt>Skills &amp; Road<small>Maneuvers and road test</small></dt>
+                <dd>$135</dd>
+              </div>
+              <div>
+                <dt>Road Only<small>Road test</small></dt>
+                <dd>$85</dd>
+              </div>
+              <div>
+                <dt>Class A Truck Rental<small>Added to your test fee</small></dt>
+                <dd>$250</dd>
+              </div>
+              <div>
+                <dt>Class B Truck Rental<small>Added to your test fee</small></dt>
+                <dd>$225</dd>
+              </div>
+            </dl>
+            <p>This is a request, not a confirmed appointment. We'll contact you to confirm your date and time. Prefer
+              to talk? Call <a href="tel:+19376185304">(937) 618-5304</a>.</p>
+            <p><strong>Cancellations:</strong> All cancellations must be made at least 48 business hours in advance.</p>
+          </div>
 
-          <article class="card reveal">
-            <div class="card-tag">Already passed pre-trip</div>
-            <h3>Partial Test</h3>
-            <p class="card-price">$135</p>
-            <p class="card-desc">For drivers who only need to complete maneuvers and the road test.</p>
-            <ul class="checklist small">
-              <li>Basic vehicle control (maneuvers)</li>
-              <li>On-road driving test</li>
-            </ul>
-            <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-outline-dark">Schedule Test</a>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-tag">Road test only</div>
-            <h3>Driving Only</h3>
-            <p class="card-price">$85</p>
-            <p class="card-desc">For drivers who only need to complete the on-road driving test.</p>
-            <ul class="checklist small">
-              <li>On-road driving test</li>
-            </ul>
-            <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-outline-dark">Schedule Test</a>
-          </article>
+          <form class="contact-form reveal" id="schedule-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" novalidate>
+          <?php a1cdl_contact_form_fields( 'a1cdl_schedule' ); ?>
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+                <span class="error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+                <span class="error" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+                <span class="error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="cdl_class">CDL class</label>
+                <select id="cdl_class" name="cdl_class">
+                  <option data-rental="250">Class A</option>
+                  <option data-rental="225">Class B</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="service">What do you need?</label>
+                <select id="service" name="service">
+                  <option>CDL test only</option>
+                  <option>CDL test and truck rental</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="test">Test and fee</label>
+                <select id="test" name="test">
+                  <option data-fee="165">Full Test: $165</option>
+                  <option data-fee="135">Skills &amp; Road: $135</option>
+                  <option data-fee="85">Road Only: $85</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="preferred_date">Preferred day</label>
+                <input id="preferred_date" name="preferred_date" type="date" required />
+                <span class="error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label for="preferred_time">Preferred time</label>
+                <select id="preferred_time" name="preferred_time">
+                  <option>Morning</option>
+                  <option>Afternoon</option>
+                  <option>Any time</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="practice">Practice <span class="optional">(optional)</span></label>
+                <select id="practice" name="practice">
+                  <option data-fee="0">No practice session</option>
+                  <option data-fee="500">1 hour: $500</option>
+                  <option data-fee="1200">3 hours: $1,200</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="message">Message <span class="optional">(optional)</span></label>
+                <textarea id="message" name="message" rows="1"></textarea>
+              </div>
+            </div>
+            <div class="schedule-submit">
+              <p class="schedule-total">Estimated total <strong id="schedule-total">$165</strong></p>
+              <button type="submit" class="btn btn-primary btn-lg">Send Request <svg class="chev" viewBox="0 0 24 24"
+                  aria-hidden="true">
+                  <path d="M9 6l6 6-6 6" />
+                </svg></button>
+            </div>
+            <?php a1cdl_contact_form_error(); ?>
+          <p class="form-success" role="status"<?php a1cdl_contact_form_success_attr(); ?>>Thanks! Your request was received. We'll contact you to confirm
+              your appointment.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -85,11 +164,11 @@ get_header();
       <div class="container">
         <div class="section-head reveal">
           <span class="rule" aria-hidden="true"></span>
-          <h2>Practice &amp; <span class="text-red">Policies</span></h2>
-          <p>Get comfortable in the truck before test day, and know our rescheduling policy before you book.</p>
+          <h2>Not Ready to <span class="text-red">Test Yet?</span></h2>
+          <p>Add practice time before your test, or get full training first. We'll get you there.</p>
         </div>
-        <div class="cards cards-2">
-          <article class="card reveal">
+        <div class="cards">
+          <article class="card card-wide reveal">
             <div class="card-tag">Optional</div>
             <h3>Practice Sessions</h3>
             <p class="card-desc">Additional preparation and practice in our equipment are available, but not
@@ -104,72 +183,8 @@ get_header();
                 <dd>$1,200</dd>
               </div>
             </dl>
-            <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-outline-dark">Book Practice Time</a>
+            <a href="#schedule" class="btn btn-outline-dark" data-practice="1 hour">Book Practice Time</a>
           </article>
-
-          <article class="card reveal">
-            <div class="card-tag">Please note</div>
-            <h3>Cancellation Policy</h3>
-            <p class="card-desc">Plans change. Here's how cancellations and rescheduling work:</p>
-            <dl class="cost-list policy-list">
-              <div>
-                <dt>72+ hours notice</dt>
-                <dd>Full refund or move to a new date</dd>
-              </div>
-              <div>
-                <dt>48 to 72 hours notice</dt>
-                <dd>$100 non-refundable</dd>
-              </div>
-              <div>
-                <dt>Less than 48 hours notice</dt>
-                <dd>No refund</dd>
-              </div>
-            </dl>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bg-soft">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="rule" aria-hidden="true"></span>
-          <h2>How to <span class="text-red">Schedule</span></h2>
-          <p>Booking your CDL test takes just a few steps.</p>
-        </div>
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step-num">01</span>
-            <h3>Contact Us</h3>
-            <p>Fill out our form or call us to tell us which test you need.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step-num">02</span>
-            <h3>Pick Your Test &amp; Date</h3>
-            <p>We'll go over your options, equipment, cost and available dates.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step-num">03</span>
-            <h3>Add Practice Time</h3>
-            <p>Optional: book 1 or 3 hours of road and range practice before your test.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step-num">04</span>
-            <h3>Test Day</h3>
-            <p>Arrive with your permit and documents, and we'll take it from there.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="rule" aria-hidden="true"></span>
-          <h2>Need Training <span class="text-red">First?</span></h2>
-          <p>Not ready to test yet? We'll get you there.</p>
-        </div>
-        <div class="cards">
           <article class="card reveal">
             <h3>CDL School Training</h3>
             <p class="card-desc">Complete Class A and Class B programs for individuals, from theory to test day.</p>
@@ -219,7 +234,7 @@ get_header();
           </details>
           <details>
             <summary>Can I use your equipment for my test?</summary>
-            <p>Yes. Using our equipment is a good option if you don't have a properly registered, insured and test-ready commercial vehicle.</p>
+            <p>Yes. Truck rental is $250 for Class A or $225 for Class B, added to your test fee.</p>
           </details>
           <details>
             <summary>Can other schools send their students to test here?</summary>
@@ -243,7 +258,11 @@ get_header();
           </details>
           <details>
             <summary>How do I schedule my CDL test?</summary>
-            <p><a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>">Contact us</a> or call (937) 618-5304. We will go over your options, available dates, equipment, cost and what to bring on test day.</p>
+            <p><a href="#schedule">Request an appointment</a> or call (937) 618-5304. We will go over your options, available dates, equipment, cost and what to bring on test day.</p>
+          </details>
+          <details>
+            <summary>Who is eligible to test with A1 CDL School?</summary>
+            <p>Must be a U.S. citizen, OR must be a lawful permanent resident (Green card holder). Permanent residents must possess a valid 10-year Green Card.</p>
           </details>
         </div>
       </div>
@@ -257,7 +276,7 @@ get_header();
           <p>Pick your test, choose a date, and get one step closer to your CDL.</p>
         </div>
         <div class="cta-actions">
-          <a href="<?php echo esc_url( a1cdl_link( 'contact' ) ); ?>" class="btn btn-primary btn-lg">Schedule Your Test <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
+          <a href="#schedule" class="btn btn-primary btn-lg">Schedule Your Test <svg class="chev" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M9 6l6 6-6 6" />
               </svg></a>
           <a href="tel:+19376185304" class="btn btn-outline btn-lg">Call (937) 618-5304</a>

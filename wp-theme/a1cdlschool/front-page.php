@@ -183,6 +183,14 @@ get_header();
             </ul>
           </div>
         </div>
+        <div class="eligibility reveal">
+          <h3>Eligibility Requirements</h3>
+          <ol>
+            <li>Must be a U.S. citizen, OR</li>
+            <li>Must be a lawful permanent resident (Green card holder)</li>
+            <li>Permanent residents must possess a valid 10-year Green Card.</li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -372,7 +380,7 @@ get_header();
         </div>
 
         <form class="contact-form reveal" id="contact-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" novalidate>
-          <?php a1cdl_contact_form_fields(); ?>
+          <?php a1cdl_contact_form_fields( 'a1cdl_contact' ); ?>
           <h3>Request Information</h3>
           <div class="form-row">
             <div class="field">

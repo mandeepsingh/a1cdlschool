@@ -13,7 +13,7 @@ get_header();
       <div class="container">
         <span class="rule"></span>
         <h1>Terms &amp; Conditions</h1>
-        <p>Last updated: October 23, 2026</p>
+        <p>Last updated: November 3, 2026</p>
       </div>
     </section>
 
@@ -36,6 +36,8 @@ get_header();
         <p>Submitting a request through our website does not enroll you in a program or reserve a training spot. To
           enroll, you must meet all program and legal requirements, which may include:</p>
         <ul>
+          <li>Being a U.S. citizen or a lawful permanent resident (Green card holder). Permanent residents must possess a
+            valid 10-year Green Card.</li>
           <li>Meeting the minimum age requirement for the license class and type of driving</li>
           <li>Holding a valid driver's license and, where required, a commercial learner's permit (CLP)</li>
           <li>Passing a DOT physical and holding a valid medical examiner's certificate</li>
@@ -47,6 +49,11 @@ get_header();
         <p>Tuition, fees, payment schedules and refund terms are set out in your enrollment agreement. Prices shown on
           this website are subject to change and do not include third-party costs unless stated, such as permit fees,
           DOT physicals, drug testing, or CDL skills test fees.</p>
+
+        <h2>CDL testing appointments and cancellations</h2>
+        <p>Submitting a request through our website does not confirm a CDL testing appointment. We will contact you to
+          confirm your date and time.</p>
+        <p>All cancellations must be made at least 48 business hours in advance.</p>
 
         <h2>No guarantee of results</h2>
         <p>We provide training designed to prepare you for the CDL knowledge and skills tests and to meet federal Entry-Level
@@ -72,7 +79,7 @@ get_header();
 
         <h2>Disclaimer and limitation of liability</h2>
         <p>This website is provided "as is" without warranties of any kind. To the fullest extent permitted by law, A1
-          CDL Training is not liable for any indirect, incidental or consequential damages arising from your use of
+          CDL School is not liable for any indirect, incidental or consequential damages arising from your use of
           this website or reliance on its content.</p>
 
         <h2>Privacy</h2>

@@ -1,10 +1,11 @@
 <?php
 /**
- * HTML email for a contact form request, in the site's colors.
+ * HTML email for a contact or schedule form request, in the site's colors.
  * Email apps ignore most CSS, so this uses tables and inline styles.
  *
  * Source: tools/wp/email-contact.php (copied into the theme's inc/ by tools/build_wp_theme.py).
- * Included by a1cdl_contact_email_html() with $name, $phone, $email, $program and $message set.
+ * Included by a1cdl_contact_email_html() with $name, $phone, $email, $message, $heading, $source,
+ * $preheader and $details (label => plain text) set.
  *
  * @package A1CDLSchool
  */
@@ -15,8 +16,10 @@ $rows = array(
 	'Name'    => esc_html( $name ),
 	'Phone'   => '<a href="tel:' . esc_attr( $tel ) . '" style="color:#e31b23;text-decoration:none;">' . esc_html( $phone ) . '</a>',
 	'Email'   => '<a href="mailto:' . esc_attr( $email ) . '" style="color:#e31b23;text-decoration:none;">' . esc_html( $email ) . '</a>',
-	'Program' => esc_html( $program ? $program : 'Not given' ),
 );
+foreach ( $details as $label => $value ) {
+	$rows[ $label ] = esc_html( $value );
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,10 +27,10 @@ $rows = array(
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="color-scheme" content="light only" />
-<title>New information request</title>
+<title><?php echo esc_html( $heading ); ?></title>
 </head>
 <body style="margin:0;padding:0;background:#f5f6f8;">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;"><?php echo esc_html( sprintf( '%s is interested in %s. Call %s.', $name, $program ? $program : 'CDL training', $phone ) ); ?></div>
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;"><?php echo esc_html( $preheader ); ?></div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5f6f8;">
 <tr><td align="center" style="padding:32px 16px;">
 	<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e5e7eb;">
@@ -38,9 +41,9 @@ $rows = array(
 		<tr><td style="background:#e31b23;height:4px;line-height:4px;font-size:0;">&nbsp;</td></tr>
 
 		<tr><td style="padding:32px 32px 8px;<?php echo $font; ?>">
-			<p style="margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#e31b23;">New information request</p>
+			<p style="margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#e31b23;"><?php echo esc_html( $heading ); ?></p>
 			<h1 style="margin:0;font-size:26px;line-height:1.25;font-weight:800;color:#111318;"><?php echo esc_html( $name ); ?></h1>
-			<p style="margin:8px 0 0;font-size:15px;line-height:1.5;color:#4a5160;">Sent from the contact form on <?php echo esc_html( wp_parse_url( home_url(), PHP_URL_HOST ) ); ?>.</p>
+			<p style="margin:8px 0 0;font-size:15px;line-height:1.5;color:#4a5160;">Sent from the <?php echo esc_html( $source ); ?> on <?php echo esc_html( wp_parse_url( home_url(), PHP_URL_HOST ) ); ?>.</p>
 		</td></tr>
 
 		<tr><td style="padding:24px 32px 8px;">
