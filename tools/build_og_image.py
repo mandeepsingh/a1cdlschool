@@ -14,7 +14,7 @@ W, H = 1200, 630
 DARK = (17, 19, 24)
 RED = (227, 27, 35)
 
-PHOTO = "truck-photo-3.png"
+PHOTO = "truck-photo-3.jpg"
 PHOTO_WIDTH = 850  # photo is scaled to this width and pinned to the right edge
 PHOTO_TOP = 0.24   # share of the extra height cropped from the top
 
