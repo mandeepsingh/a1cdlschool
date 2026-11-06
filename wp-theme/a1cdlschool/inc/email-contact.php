@@ -66,11 +66,9 @@ foreach ( $details as $label => $value ) {
 				<td style="border-radius:8px;background:#e31b23;">
 					<a href="tel:<?php echo esc_attr( $tel ); ?>" style="display:inline-block;padding:13px 24px;font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;">Call <?php echo esc_html( strtok( $name, ' ' ) ); ?></a>
 				</td>
-				<td width="12">&nbsp;</td>
-				<td style="border-radius:8px;border:2px solid #111318;">
-					<a href="mailto:<?php echo esc_attr( $email ); ?>" style="display:inline-block;padding:11px 22px;font-size:15px;font-weight:700;color:#111318;text-decoration:none;">Reply by email</a>
-				</td>
 			</tr></table>
+			<?php // No "Reply by email" button: a mailto: link always starts a new email. The Reply-To header makes the email app's own Reply answer the visitor in the same thread. ?>
+			<p style="margin:16px 0 0;font-size:14px;line-height:1.5;color:#4a5160;">To answer by email, just hit Reply. It goes straight to <?php echo esc_html( strtok( $name, ' ' ) ); ?>.</p>
 		</td></tr>
 
 		<tr><td style="background:#111318;padding:20px 32px;<?php echo $font; ?>font-size:13px;line-height:1.6;color:#aab0bc;">

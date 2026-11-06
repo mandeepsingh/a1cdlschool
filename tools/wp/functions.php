@@ -351,7 +351,10 @@ function a1cdl_send_form_email( $to, $subject, $fields, $content ) {
 	}
 	$text .= "\nMessage:\n{$fields['message']}\n";
 
-	$headers  = array( sprintf( 'Reply-To: %s <%s>', $fields['name'], $fields['email'] ), 'Content-Type: text/html; charset=UTF-8' );
+	// Reply-To makes the email app's Reply answer the visitor. wp_mail() splits this header on commas
+	// and a stray < > " or @ can confuse it, so take those out of the name (as a1de-bookings does).
+	$reply_name = trim( preg_replace( '/\s+/', ' ', str_replace( array( ',', ';', ':', '<', '>', '"', '@' ), ' ', $fields['name'] ) ) );
+	$headers    = array( sprintf( 'Reply-To: %s <%s>', $reply_name, $fields['email'] ), 'Content-Type: text/html; charset=UTF-8' );
 	$alt_body = function ( $phpmailer ) use ( $text ) {
 		$phpmailer->AltBody = $text; // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 	};
